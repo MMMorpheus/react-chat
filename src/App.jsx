@@ -1,7 +1,8 @@
 import React from "react";
-import { Auth } from "./Pages";
-
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
+
+import Auth from "./Pages/Auth";
 
 const AppWrapper = styled.section`
   display: flex;
@@ -15,7 +16,7 @@ const AppWrapper = styled.section`
 const App = () => {
   return (
     <AppWrapper>
-      <Auth />
+      <Outlet />
     </AppWrapper>
   );
 };

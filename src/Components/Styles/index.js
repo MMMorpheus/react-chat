@@ -35,6 +35,7 @@ export const Input = styled.input`
 
 export const Link = styled.a`
   text-decoration: none;
+  display: block;
   cursor: pointer;
   color: #adadad;
   letter-spacing: 0.1px;

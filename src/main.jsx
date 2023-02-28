@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import App from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import "@fontsource/roboto";
+import { LoginForm, RegisterForm } from "./Modules";
+import Auth from "./Pages/Auth";
 
 import { createGlobalStyle } from "styled-components";
+import "@fontsource/roboto";
+
 const Global = createGlobalStyle`
   *{
     margin: 0;
@@ -18,9 +21,27 @@ const Global = createGlobalStyle`
   }
 `;
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      { index: true, element: <Auth /> },
+      {
+        path: "/login",
+        element: <LoginForm />,
+      },
+      {
+        path: "/register",
+        element: <RegisterForm />,
+      },
+    ],
+  },
+]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
     <Global />
-    <App />
+    <RouterProvider router={router} />
   </>
 );

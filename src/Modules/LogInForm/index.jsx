@@ -2,6 +2,8 @@ import React from "react";
 import { Button, Block } from "../../Components";
 import * as C from "../../Components/Styles";
 
+import { Link } from "react-router-dom";
+
 const LoginForm = () => {
   return (
     <>
@@ -14,7 +16,10 @@ const LoginForm = () => {
         />
         <C.Input type="password" placeholder="Пароль" mg_bt="3rem" />
         <Button>Войти в аккаунт</Button>
-        <C.Link>Зарегистрироваться</C.Link>
+        <Link to={'/register'}>
+          <C.Link>Зарегистрироваться</C.Link>
+          {/* Зарегистрироваться */}
+        </Link>
       </Block>
     </>
   );
