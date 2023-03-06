@@ -19,6 +19,7 @@ const Home = () => {
       <DialogsList />
       <Dialog>
         <Message text ='Hello from React.JS! Welcome to the incredible world of Web Development!' user = {user}/>
+        <Message isMe={true} text ='Hello from other user! Welcome to the incredible world of Web Development!' user = {user}/>
       </Dialog>
     </StyledHome>
   );
