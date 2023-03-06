@@ -1,5 +1,18 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { CheckDouble } from "@styled-icons/boxicons-regular";
+
+export const StyledMessage = styled.div`
+  max-width: 530px;
+  display: flex;
+  ${(props) =>
+    props.$isMe &&
+    css`
+      flex-direction: row-reverse;
+      align-self: flex-end;
+    `}
+  align-items: flex-end;
+  margin-bottom: 25px;
+`;
 
 export const AvatarContainer = styled.div`
   border-radius: 50%;
@@ -46,15 +59,61 @@ export const Bubble = styled.div`
   line-height: 20px;
 
   box-shadow: 0 5px 5px rgba(51, 116, 255, 0.2);
-  
 `;
 
-export const CreatedAt = styled.span`
+const typingAnimation = keyframes`
+  0% {
+    transform: translateY(0px);
+    background-color: #4A90E2;
+  }
+  28% {
+    transform: translateY(-7px);
+    background-color: #90D2FF;
+  }
+  44% {
+    transform: translateY(0px);
+    background-color: #71C5FF;
+  }
+`;
+
+export const TypingBubble = styled(Bubble)`
+  width: 100px;
+  background-color: #61beff;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  & :nth-child(1) {
+    animation-delay: 200ms;
+  }
+  & :nth-child(2) {
+    animation-delay: 300ms;
+  }
+  & :nth-child(3) {
+    animation-delay: 400ms;
+  }
+`;
+
+export const Dot = styled.div`
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  animation: ${typingAnimation} 1.8s infinite ease-in-out;
+`;
+
+export const Hint = styled.span`
   font-size: 12px;
   opacity: 0.5;
   min-width: max-content;
   position: absolute;
   bottom: -15px;
+`;
+
+export const CreatedAt = styled(Hint)`
+  /* font-size: 12px;
+  opacity: 0.5;
+  min-width: max-content;
+  position: absolute;
+  bottom: -15px; */
   ${(props) =>
     props.$isMe &&
     css`
@@ -93,6 +152,7 @@ export const AttachmentItem = styled.li`
   height: 50px;
   border-radius: 4px;
   overflow: hidden;
+  cursor: pointer;
   & img {
     width: 100%;
   }

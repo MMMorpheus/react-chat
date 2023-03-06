@@ -13,6 +13,7 @@ const StyledHome = styled.section`
 
 const Home = () => {
   const [isLogged, setisLogged] = useState(true);
+
   return !isLogged ? (
     <Auth />
   ) : (
@@ -20,8 +21,14 @@ const Home = () => {
       <DialogsList />
       <Dialog>
         <Message text ='Hello from React.JS! Welcome to the incredible world of Web Development! Hello from React.JS! Welcome to the incredible world of Web Development! Hello from React.JS! Welcome to the incredible world of Web Development!' user = {user}/>
+        <Message isTyping={true} user = {user}/>
         <Message isMe text ='Hello from other user! Welcome to the incredible world of Web Development!' user = {user}/>
         <Message text ='Hello!' user = {user} attachments={[
+          {url: 'https://source.unsplash.com/250x250/?random=1&water,nature', filename: 'picture.jpg'},
+          {url: 'https://source.unsplash.com/250x250/?random=2&water,nature', filename: 'picture.jpg'},
+          {url: 'https://source.unsplash.com/250x250/?random=3&water,nature', filename: 'picture.jpg'},
+        ]}/>
+        <Message isMe user = {user} attachments={[
           {url: 'https://source.unsplash.com/250x250/?random=1&water,nature', filename: 'picture.jpg'},
           {url: 'https://source.unsplash.com/250x250/?random=2&water,nature', filename: 'picture.jpg'},
           {url: 'https://source.unsplash.com/250x250/?random=3&water,nature', filename: 'picture.jpg'},
@@ -41,6 +48,6 @@ const Home = () => {
 export default Home;
 
 const user = {
-  fullname: "John Doe",
+  fullname: "Тарас Шевченко",
   avatar: testAvatar,
 };

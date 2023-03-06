@@ -8,31 +8,29 @@ import { Text } from "../Styles";
 import { formatDistanceToNow } from "date-fns";
 import { ru } from "date-fns/locale";
 
-const StyledMessage = styled.div`
-  max-width: 530px;
-  display: flex;
-  ${(props) =>
-    props.$isMe &&
-    css`
-      flex-direction: row-reverse;
-      align-self: flex-end;
-    `}
-  align-items: flex-end;
-  margin-bottom: 25px;
-`;
-
-const Message = ({ text, user, isMe, isRead, attachments }) => {
+const Message = ({ user, text, attachments, isMe, isRead, isTyping }) => {
   return (
-    <StyledMessage $isMe={isMe}>
+    <M.StyledMessage $isMe={isMe}>
       <M.AvatarContainer $isMe={isMe}>
         <img src={user.avatar} alt={`${user.fullname} avatar`} />
       </M.AvatarContainer>
 
       <M.Content>
-
-        <M.Bubble $isMe={isMe}>
-          <Text>{text}</Text>
-        </M.Bubble>
+        {isTyping && !text && (
+          <>
+          <M.TypingBubble>
+            <M.Dot />
+            <M.Dot />
+            <M.Dot />
+          </M.TypingBubble>
+          <M.Hint>{`${user.fullname} печатает...`}</M.Hint>
+          </>
+        )}
+        {text && (
+          <M.Bubble $isMe={isMe}>
+            <Text>{text}</Text>
+          </M.Bubble>
+        )}
 
         <M.AttachmentList>
           {attachments?.map((elem) => {
@@ -44,16 +42,15 @@ const Message = ({ text, user, isMe, isRead, attachments }) => {
           })}
         </M.AttachmentList>
 
-        <M.CreatedAt $isMe={isMe}>
-          {formatDistanceToNow(new Date(), { addSuffix: true, locale: ru })}
-        </M.CreatedAt>
-        
+        {!isTyping && (
+          <M.CreatedAt $isMe={isMe}>
+            {formatDistanceToNow(new Date(), { addSuffix: true, locale: ru })}
+          </M.CreatedAt>
+        )}
       </M.Content>
 
-      <M.IsRead $isMe={isMe} $isRead={isRead} />
-
-
-    </StyledMessage>
+      {!isTyping && <M.IsRead $isMe={isMe} $isRead={isRead} />}
+    </M.StyledMessage>
   );
 };
 
