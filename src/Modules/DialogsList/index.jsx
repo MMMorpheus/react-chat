@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledAside = styled.aside`
-  width: 400px;
+  /* width: 400px; */
+  flex: 0 1 30%;
   height: 100%;
   background-color: blueviolet;
 `;

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledDialog = styled.section`
+flex: 0 1 70%;
 display: flex;
 flex-direction: column;
 padding: 10px;
