@@ -4,7 +4,7 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { LoginForm, RegisterForm } from "./Modules";
-import Auth from "./Pages/Auth";
+import {Auth, Home} from "./Pages";
 
 import { createGlobalStyle } from "styled-components";
 import "@fontsource/roboto";
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { index: true, element: <Auth /> },
+      // { index: true, element: <Auth /> },
       {
         path: "/login",
         element: <LoginForm />,
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <RegisterForm />,
+      },
+      {
+        path: "/me",
+        element: <Home />,
       },
     ],
   },

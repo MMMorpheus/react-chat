@@ -1,4 +1,13 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+export const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+`;
 
 export const Title = styled.h2`
   font-size: 28px;
@@ -11,8 +20,11 @@ export const SubTitle = styled.p`
   line-height: 21px;
   letter-spacing: 0.1px;
   margin-bottom: 50px;
+  max-width: 410px;
+  text-align: center;
 `;
 export const Text = styled.p``;
+
 export const FlexCenter = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.column ? "column" : "row")};
@@ -33,7 +45,7 @@ export const Input = styled.input`
   }
 `;
 
-export const Link = styled.a`
+export const Linky = styled(Link)`
   text-decoration: none;
   display: block;
   cursor: pointer;

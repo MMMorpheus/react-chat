@@ -2,11 +2,9 @@ import React from "react";
 import { Button, Block } from "../../Components";
 import * as C from "../../Components/Styles";
 
-import { Link } from "react-router-dom";
-
 const LoginForm = () => {
   return (
-    <>
+    <C.FormContainer>
       <C.Title>Войти в аккаунт</C.Title>
       <C.SubTitle>Пожалуйста, войдите в свой аккаунт</C.SubTitle>
       <Block column>
@@ -16,12 +14,11 @@ const LoginForm = () => {
         />
         <C.Input type="password" placeholder="Пароль" mg_bt="3rem" />
         <Button>Войти в аккаунт</Button>
-        <Link to={'/register'}>
-          <C.Link>Зарегистрироваться</C.Link>
-          {/* Зарегистрироваться */}
-        </Link>
+        <C.Linky to={'/register'}>
+          Зарегистрироваться
+        </C.Linky>
       </Block>
-    </>
+    </C.FormContainer>
   );
 };
 
