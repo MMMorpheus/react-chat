@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 
 const AppWrapper = styled.main`
-  display: flex;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   color: #202020;
 `;
 
