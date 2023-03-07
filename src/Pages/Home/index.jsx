@@ -6,13 +6,14 @@ import testAvatar from "../../assets/img/testAvatar.png";
 
 import styled from "styled-components";
 const StyledHome = styled.section`
-  display: flex;
   height: 100%;
   width: 100%;
+  display: flex;
+  align-items: center;
 `;
 
 const Home = () => {
-  const [isLogged, setisLogged] = useState(true);
+  const [isLogged, setisLogged] = useState(false);
 
   return !isLogged ? (
     <Auth />

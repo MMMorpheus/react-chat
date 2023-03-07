@@ -12,6 +12,7 @@ const StyledButton = styled.button`
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
+    margin-top: 15px;
     cursor: pointer;
     ${props => props.primary && css`
         background-color: #68a0f3;
