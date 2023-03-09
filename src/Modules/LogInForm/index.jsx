@@ -17,7 +17,7 @@ const LoginForm = () => {
       <Form>
         <C.Title>Войти в аккаунт</C.Title>
         <C.SubTitle>Пожалуйста, войдите в свой аккаунт</C.SubTitle>
-        <Block column jc="space-between" height="375px">
+        <Block column jc="space-between" height="400px">
           <C.Label>
             <Input name="email" type="email" placeholder="Адресс електронной почты" />
             <C.FormIconStyleWrapper>
@@ -25,7 +25,7 @@ const LoginForm = () => {
             </C.FormIconStyleWrapper>
           </C.Label>
           <C.Label>
-            <Input name="pasword" type="password" placeholder="Пароль"/>
+            <Input name="password" type="password" placeholder="Пароль"/>
             <C.FormIconStyleWrapper>
               <Lock />
             </C.FormIconStyleWrapper>

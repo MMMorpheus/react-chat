@@ -36,7 +36,7 @@ const RegisterForm = () => {
           {isFetching ? (
             <ConfirmRegister />
           ) : (
-            <Block column jc="space-between" height="500px">
+            <Block column jc="space-between" height="550px">
               <C.Label>
                 <Input name="email" placeholder="Адресс електронной почты" />
                 <C.FormIconStyleWrapper>

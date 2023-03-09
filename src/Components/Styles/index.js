@@ -42,7 +42,7 @@ export const Linky = styled(Link)`
   color: #adadad;
   letter-spacing: 0.1px;
   font-size: 16px;
-  margin-block: 1.5rem;
+  margin: 1.5rem 0 1rem 0;
 `;
 
 export const Label = styled.label`

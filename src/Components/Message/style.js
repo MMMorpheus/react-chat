@@ -146,14 +146,20 @@ export const AttachmentList = styled.ul`
   margin-bottom: 8px;
 `;
 
-export const AttachmentItem = styled.li`
-  display: block;
-  width: 50px;
-  height: 50px;
-  border-radius: 4px;
-  overflow: hidden;
+export const BigAttachmentItem = styled.div`
+width: 150px;
+height: 150px;
+border-radius: 4px;
+margin-bottom: 8px;
+overflow: hidden;
   cursor: pointer;
   & img {
     width: 100%;
   }
+`
+export const SmallAttachmentItem = styled(BigAttachmentItem)`
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0;
 `;

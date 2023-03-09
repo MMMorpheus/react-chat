@@ -16,7 +16,21 @@ const StyledInput = styled.input`
   &:focus {
     box-shadow: 0px 0px 10px 1px rgba(28, 136, 255, 0.5);
   }
+  ${props => props.$inValid && css`
+    border-color: red;
+  `}
+  ${props => props.$valid && css`
+    border-color: lightgreen;
+  `}
 `;
+
+const StyledError = styled.div`
+    text-align: center;
+    font-size: 12px;
+    color: red;
+    margin: 5px auto 5px auto;
+    max-width: 280px;
+`
 
 const Input = ({ name, type, placeholder, ...props }) => {
   return (
@@ -28,10 +42,12 @@ const Input = ({ name, type, placeholder, ...props }) => {
             placeholder={placeholder}
             {...field}
             autoComplete="off"
+            $inValid={meta.touched && meta.error}
+            $valid={meta.touched && !meta.error}
           />
           {/*Error component here*/}
           {meta.touched && meta.error && (
-            <div className="error">{meta.error}</div>
+            <StyledError>{meta.error}</StyledError>
           )}
         </>
       )}

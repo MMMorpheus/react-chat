@@ -13,7 +13,7 @@ const StyledHome = styled.section`
 `;
 
 const Home = () => {
-  const [isLogged, setisLogged] = useState(false);
+  const [isLogged, setisLogged] = useState(true);
 
   return !isLogged ? (
     <Auth />
@@ -33,6 +33,12 @@ const Home = () => {
           {url: 'https://source.unsplash.com/250x250/?random=1&water,nature', filename: 'picture.jpg'},
           {url: 'https://source.unsplash.com/250x250/?random=2&water,nature', filename: 'picture.jpg'},
           {url: 'https://source.unsplash.com/250x250/?random=3&water,nature', filename: 'picture.jpg'},
+        ]}/>
+        <Message user = {user} attachments={[
+          {url: 'https://source.unsplash.com/250x250/?random=1&water,nature', filename: 'picture.jpg'}
+        ]}/>
+        <Message isMe user = {user} attachments={[
+          {url: 'https://source.unsplash.com/250x250/?random=1&water,nature', filename: 'picture.jpg'}
         ]}/>
         <Message text ='Hello from other user!' user = {user} attachments={[
           {url: 'https://source.unsplash.com/250x250/?random=1&water,nature', filename: 'picture.jpg'},
