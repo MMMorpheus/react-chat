@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FlexCenter } from '../Styles';
 const StyledBlock = styled(FlexCenter)`
-height: ${props => props.height || "auto"};
+min-height: ${props => props.height || "auto"};
 gap: ${props => props.gap || "auto" };
 padding: 45px;
 background: #fff;

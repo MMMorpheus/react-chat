@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {StyledIconBase} from '@styled-icons/styled-icon'
 import { Link } from "react-router-dom";
 
-export const FormContainer = styled.form`
+export const FormContainer = styled.section`
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -33,20 +33,6 @@ export const FlexCenter = styled.div`
   flex-direction: ${(props) => (props.column ? "column" : "row")};
   justify-content: ${(props) => (props.jc || "center")};
   align-items: center;
-`;
-
-export const Input = styled.input`
-  width: 300px;
-  height: 56px;
-  border-radius: 5px;
-  border: 0.5px solid #909090;
-  outline: none;
-  /* margin-bottom: ${(props) => props.mg_bt || "1rem"}; */
-  text-indent: 38px;
-  font-size: 20px; 
-  &::placeholder {
-    font-size: 14px;
-  }
 `;
 
 export const Linky = styled(Link)`
