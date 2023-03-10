@@ -1,12 +1,15 @@
 import React from "react";
 import * as D from "./style";
-import { formatDistanceToNow } from "date-fns";
-import { ru } from "date-fns/locale";
+import { formatTime } from "../../utils";
 
 const DialogPreview = ({
   content: {
+    createdAt,
+    text,
+    isMe,
+    isRead,
+    unread,
     user: { fullName, avatar },
-    lastMessage: { text, isMe, isRead, unread },
   },
   isOnline,
 }) => {
@@ -29,9 +32,7 @@ const DialogPreview = ({
           </D.NotificationContainer>
         )}
         {/* Rendering createdAt time */}
-        <D.CreatedAt>
-          {formatDistanceToNow(new Date(), { addSuffix: true, locale: ru })}
-        </D.CreatedAt>
+        <D.CreatedAt>{formatTime(createdAt)}</D.CreatedAt>
       </D.Info>
     </D.Preview>
   );

@@ -4,10 +4,9 @@ import React from "react";
 import * as M from "./style";
 import { Text } from "../Styles";
 
-import { formatDistanceToNow } from "date-fns";
-import { ru } from "date-fns/locale";
+import { formatTime } from "../../utils";
 
-const Message = ({ user, text, attachments, isMe, isRead, isTyping }) => {
+const Message = ({ user, text, attachments, isMe, isRead, isTyping, created_at }) => {
   return (
     <M.StyledMessage $isMe={isMe}>
       <M.AvatarContainer $isMe={isMe}>
@@ -62,7 +61,7 @@ const Message = ({ user, text, attachments, isMe, isRead, isTyping }) => {
 
         {!isTyping && (
           <M.CreatedAt $isMe={isMe}>
-            {formatDistanceToNow(new Date(), { addSuffix: true, locale: ru })}
+            {formatTime(created_at)}
           </M.CreatedAt>
         )}
       </M.Content>

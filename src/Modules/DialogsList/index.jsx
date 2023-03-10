@@ -2,14 +2,15 @@ import React from "react";
 import { DialogPreview } from "../../Components";
 
 import { items } from "../../TestObj";
+import { orderBy } from "lodash";
 
 import * as L from "./style";
 import { Messages } from "@styled-icons/typicons";
 import { Edit } from "@styled-icons/boxicons-regular";
 
 const DialogsList = ({ children, ...props }) => {
-  const dialogs = items.map((item) => {
-    return <DialogPreview content={item} isOnline />;
+  const dialogs = orderBy(items, ["createdAt"], ["desc"]).map((item) => {
+    return <DialogPreview key={item.user._id} content={item} isOnline />;
   });
 
   return (
