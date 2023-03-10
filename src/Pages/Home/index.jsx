@@ -29,11 +29,6 @@ const Home = () => {
           {url: 'https://source.unsplash.com/250x250/?random=2&water,nature', filename: 'picture.jpg'},
           {url: 'https://source.unsplash.com/250x250/?random=3&water,nature', filename: 'picture.jpg'},
         ]}/>
-        <Message isMe user = {user} attachments={[
-          {url: 'https://source.unsplash.com/250x250/?random=1&water,nature', filename: 'picture.jpg'},
-          {url: 'https://source.unsplash.com/250x250/?random=2&water,nature', filename: 'picture.jpg'},
-          {url: 'https://source.unsplash.com/250x250/?random=3&water,nature', filename: 'picture.jpg'},
-        ]}/>
         <Message user = {user} attachments={[
           {url: 'https://source.unsplash.com/250x250/?random=1&water,nature', filename: 'picture.jpg'}
         ]}/>
@@ -43,9 +38,6 @@ const Home = () => {
         <Message text ='Hello from other user!' user = {user} attachments={[
           {url: 'https://source.unsplash.com/250x250/?random=1&water,nature', filename: 'picture.jpg'},
           {url: 'https://source.unsplash.com/250x250/?random=2&water,nature', filename: 'picture.jpg'},
-        ]}/>
-        <Message text ='Hello from other user! Welcome to the incredible world of Web Development!' user = {user} attachments={[
-          {url: 'https://source.unsplash.com/250x250/?random=1&water,nature', filename: 'picture.jpg'},
         ]}/>
       </Dialog>
     </StyledHome>

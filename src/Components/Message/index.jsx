@@ -1,6 +1,5 @@
 import React from "react";
 
-import styled, { css } from "styled-components";
 // M means styled components for Message component;
 import * as M from "./style";
 import { Text } from "../Styles";

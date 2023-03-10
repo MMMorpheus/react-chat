@@ -78,7 +78,7 @@ const typingAnimation = keyframes`
 
 export const TypingBubble = styled(Bubble)`
   width: 100px;
-  background-color: #61beff;
+  background-color: #78c8ff;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -108,16 +108,36 @@ export const Hint = styled.span`
   bottom: -15px;
 `;
 
+export const AttachmentList = styled.ul`
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-bottom: 8px;
+`;
+
+export const BigAttachmentItem = styled.div`
+  width: 150px;
+  height: 150px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  & img {
+    width: 100%;
+  }
+`;
+export const SmallAttachmentItem = styled(BigAttachmentItem)`
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0;
+`;
+
 export const CreatedAt = styled(Hint)`
-  /* font-size: 12px;
-  opacity: 0.5;
-  min-width: max-content;
-  position: absolute;
-  bottom: -15px; */
   ${(props) =>
     props.$isMe &&
     css`
-      right: 10px;
+      right: 0;
     `}
 `;
 
@@ -137,29 +157,4 @@ export const IsRead = styled(CheckDouble)`
     css`
       color: #484fec;
     `}
-`;
-
-export const AttachmentList = styled.ul`
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 10px;
-  margin-bottom: 8px;
-`;
-
-export const BigAttachmentItem = styled.div`
-width: 150px;
-height: 150px;
-border-radius: 4px;
-margin-bottom: 8px;
-overflow: hidden;
-  cursor: pointer;
-  & img {
-    width: 100%;
-  }
-`
-export const SmallAttachmentItem = styled(BigAttachmentItem)`
-  display: block;
-  width: 50px;
-  height: 50px;
-  margin-bottom: 0;
 `;
