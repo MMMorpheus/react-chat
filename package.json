@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource/roboto": "^4.5.8",
     "@styled-icons/boxicons-regular": "^10.47.0",
+    "@styled-icons/typicons": "^10.46.0",
     "date-fns": "^2.29.3",
     "formik": "^2.2.9",
     "react": "^18.2.0",

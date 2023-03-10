@@ -3,7 +3,6 @@ import { CheckDouble } from "@styled-icons/boxicons-regular";
 
 export const Preview = styled.div`
   display: flex;
-  padding-left: 15px;
   gap: 15px;
   height: 80px;
 `;
@@ -45,7 +44,7 @@ export const Fullname = styled.div`
 export const LastMessage = styled.div`
   opacity: 0.7;
   font-size: 14px;
-  max-width: 270px;
+  max-width: 260px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
