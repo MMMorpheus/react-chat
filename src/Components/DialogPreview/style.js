@@ -6,14 +6,17 @@ export const Preview = styled.div`
   gap: 15px;
   height: 80px;
 `;
-export const Avatar = styled.div`
+export const AvatarContainer = styled.div`
   margin: 0;
   align-self: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: 700;
   & img {
-    width: 55px;
-    height: 55px;
-    object-fit: cover;
-    border-radius: 50%;
+    width: 100%;
   }
   position: relative;
 `;
@@ -44,7 +47,7 @@ export const Fullname = styled.div`
 export const LastMessage = styled.div`
   opacity: 0.7;
   font-size: 14px;
-  max-width: 260px;
+  max-width: 245px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

@@ -1,14 +1,14 @@
 import React from "react";
-import AudioMsg from "../AudioMsg";
+import {AudioMsg, Avatar} from "../";
 
 // M means styled components for Message component;
 import * as M from "./style";
 import { Text } from "../Styles";
 
-import { formatTime, colorGenerator } from "../../utils";
+import { formatTime } from "../../utils";
 
 const Message = ({
-  user: { fullname, avatar, hash },
+  user,
   text,
   attachments,
   isMe,
@@ -20,11 +20,7 @@ const Message = ({
   return (
     <M.StyledMessage $isMe={isMe}>
       <M.AvatarContainer $isMe={isMe}>
-        {avatar ? (
-          <img src={avatar} alt={`${fullname} avatar`} />
-        ) : (
-          <M.Gradient $colors={colorGenerator(hash)}>{fullname[0].toUpperCase()}</M.Gradient>
-        )}
+        <Avatar user={user} />
       </M.AvatarContainer>
 
       <M.Content>
@@ -37,7 +33,7 @@ const Message = ({
               <M.Dot />
               <M.Dot />
             </M.TypingBubble>
-            <M.Hint>{`${fullname} печатает...`}</M.Hint>
+            <M.Hint>{`${user.fullname} печатает...`}</M.Hint>
           </>
         )}
 

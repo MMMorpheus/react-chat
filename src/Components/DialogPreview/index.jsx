@@ -1,5 +1,6 @@
 import React from "react";
 import * as D from "./style";
+import {Avatar} from "../";
 import { formatTime } from "../../utils";
 
 const DialogPreview = ({
@@ -9,18 +10,18 @@ const DialogPreview = ({
     isMe,
     isRead,
     unread,
-    user: { fullName, avatar },
+    user,
   },
   isOnline,
 }) => {
   return (
     <D.Preview>
-      <D.Avatar>
-        <img src={avatar} alt={`${fullName} avatar`} />
+      <D.AvatarContainer>
+        <Avatar user={user}/>
         {isOnline && <D.Online />}
-      </D.Avatar>
+      </D.AvatarContainer>
       <D.Info>
-        <D.Fullname>{fullName}</D.Fullname>
+        <D.Fullname>{user.fullName}</D.Fullname>
         <D.LastMessage>{text}</D.LastMessage>
         {/* Rendering amount of unread msg */}
         {!isMe && unread ? (
