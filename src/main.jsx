@@ -15,6 +15,7 @@ const Global = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
+    outline: none;
   }
   body, html, #root {
     height: 100%;

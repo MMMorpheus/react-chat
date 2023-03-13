@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // M means styled components for Message component;
 import * as M from "./style";
 import { Text } from "../Styles";
 
 import { formatTime } from "../../utils";
+import whiteWaves from "../../assets/img/waves-white.svg"
+import blueWaves from "../../assets/img/waves-blue.svg"
 
-const Message = ({ user, text, attachments, isMe, isRead, isTyping, created_at }) => {
+const Message = ({
+  user,
+  text,
+  attachments,
+  isMe,
+  isRead,
+  isTyping,
+  created_at,
+  audio,
+}) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioElem = useRef(null);
+
+  function togglePlay () {
+    audioElem.current.play();
+  }
+
+  useEffect(() => {
+    audioElem.current.addEventListener("playing", () => {
+      setIsPlaying(true);
+    }, false)
+  }, [])
+
   return (
     <M.StyledMessage $isMe={isMe}>
       <M.AvatarContainer $isMe={isMe}>
@@ -14,6 +38,7 @@ const Message = ({ user, text, attachments, isMe, isRead, isTyping, created_at }
       </M.AvatarContainer>
 
       <M.Content>
+
         {/* Rendering typing animation */}
 
         {isTyping && !text && (
@@ -30,9 +55,29 @@ const Message = ({ user, text, attachments, isMe, isRead, isTyping, created_at }
         {/* Rendering msg bubble if text is existing*/}
 
         {text && (
-          <M.Bubble $isMe={isMe}>
+          <M.TextBubble $isMe={isMe}>
             <Text>{text}</Text>
-          </M.Bubble>
+          </M.TextBubble>
+        )}
+
+        {/* Rendering audio bubble if audio is existing */}
+
+        {audio && (
+          <M.AudioBubble $isMe={isMe}>
+            <audio ref={audioElem} src={audio}/>
+            <M.AudioProgressBar />
+            <M.Controls $isMe={isMe} onClick={togglePlay}>
+              {isPlaying ? (
+                <M.PlayBtn $isMe={isMe} />
+              ) : (
+                <M.PauseBtn $isMe={isMe} />
+              )}
+            </M.Controls>
+            <M.WaveContainer>
+              <img src={isMe ? blueWaves : whiteWaves} alt="audio-waves" />
+            </M.WaveContainer>
+            <M.AudioDuration>00:21</M.AudioDuration>
+          </M.AudioBubble>
         )}
 
         {/* Rendering big picture if it is only one*/}
@@ -60,9 +105,7 @@ const Message = ({ user, text, attachments, isMe, isRead, isTyping, created_at }
         {/* Rendering createdAt hint if user isn't typing*/}
 
         {!isTyping && (
-          <M.CreatedAt $isMe={isMe}>
-            {formatTime(created_at)}
-          </M.CreatedAt>
+          <M.CreatedAt $isMe={isMe}>{formatTime(created_at)}</M.CreatedAt>
         )}
       </M.Content>
 
@@ -74,3 +117,4 @@ const Message = ({ user, text, attachments, isMe, isRead, isTyping, created_at }
 };
 
 export default Message;
+

@@ -10,6 +10,9 @@ import { Edit } from "@styled-icons/boxicons-regular";
 
 const DialogsList = ({ children, ...props }) => {
   const dialogs = orderBy(items, ["createdAt"], ["desc"]).map((item) => {
+    // *TODO*
+    // Dialog item receives last msg text connected with user obj (fullname, id..) and compare it with current user token to render msg preview if it my or not my;
+    // isMe={item.user._id === userId} 
     return <DialogPreview key={item.user._id} content={item} isOnline />;
   });
 

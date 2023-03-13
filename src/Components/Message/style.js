@@ -1,6 +1,22 @@
 import styled, { css, keyframes } from "styled-components";
-import { CheckDouble } from "@styled-icons/boxicons-regular";
+import { CheckDouble, Play, Pause } from "@styled-icons/boxicons-regular";
 
+const typingAnimation = keyframes`
+  0% {
+    transform: translateY(0px);
+    background-color: #4A90E2;
+  }
+  28% {
+    transform: translateY(-7px);
+    background-color: #90D2FF;
+  }
+  44% {
+    transform: translateY(0px);
+    background-color: #71C5FF;
+  }
+`;
+
+// Msg container - renders content (avatar && text && attach's && hints) left-to-right or right-to-left is $isMe prop have been passed
 export const StyledMessage = styled.div`
   max-width: 530px;
   display: flex;
@@ -14,6 +30,7 @@ export const StyledMessage = styled.div`
   margin-bottom: 25px;
 `;
 
+// Avatar box - prop $isMe sets margins due to right-to-left content layout
 export const AvatarContainer = styled.div`
   border-radius: 50%;
   width: 33px;
@@ -32,6 +49,7 @@ export const AvatarContainer = styled.div`
   }
 `;
 
+// Content container wrapps bubble with text || typing buble || audio buble || attach's and set position for hints (isRead and createdAt)
 export const Content = styled.div`
   max-width: 450px;
   display: flex;
@@ -39,41 +57,101 @@ export const Content = styled.div`
   position: relative;
 `;
 
+// General bubble container
 export const Bubble = styled.div`
-  font-size: 14px;
-  padding: 15px;
-  color: #ffff;
-  background-color: #3674ff;
-  border-radius: 12px 12px 12px 0;
+  max-width: 440px;
+  min-height: 42px;
   margin: 0 8px 8px 0;
+  padding: 15px;
+  background-color: #3674ff;
+  color: #ffff;
+  border-radius: 12px 12px 12px 0;
+  box-shadow: 0 5px 5px rgba(51, 116, 255, 0.2);
   ${(props) =>
     props.$isMe &&
     css`
-      color: black;
+      margin: 0 0 8px 8px;
       background-color: #fff;
-      border-radius: 12px 12px 0 12px;
+      color: black;
       border: 0.5px solid #b7b7b7;
-      margin: 0 0 8px 0;
+      border-radius: 12px 12px 0 12px;
     `}
-  max-width: 440px;
-  line-height: 20px;
-
-  box-shadow: 0 5px 5px rgba(51, 116, 255, 0.2);
 `;
 
-const typingAnimation = keyframes`
-  0% {
-    transform: translateY(0px);
-    background-color: #4A90E2;
-  }
-  28% {
-    transform: translateY(-7px);
-    background-color: #90D2FF;
-  }
-  44% {
-    transform: translateY(0px);
-    background-color: #71C5FF;
-  }
+export const TextBubble = styled(Bubble)`
+  font-size: 14px;
+  line-height: 20px;
+`;
+
+export const AudioBubble = styled(Bubble)`
+  width: 300px;
+  /* max-width: 300px; */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+`;
+
+export const AudioProgressBar = styled.div`
+  width: 40%;
+  background-color: #418fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`;
+
+export const Controls = styled.button`
+  width: 40px;
+  height: 40px;
+  background-color: #0f3997;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(51, 116, 255, 0.2);
+  z-index: 1;
+  ${(props) =>
+    props.$isMe &&
+    css`
+      background-color: #fff;
+      border: 0.3px solid #b7b7b7;
+    `}
+`;
+
+export const PlayBtn = styled(Play)`
+  width: 30px;
+  padding-left: 3px;
+  color: #fff;
+  ${(props) =>
+    props.$isMe &&
+    css`
+      color: #0f3997;
+    `}
+`;
+export const PauseBtn = styled(Pause)`
+  width: 30px;
+  color: #fff;
+  ${(props) =>
+    props.$isMe &&
+    css`
+      color: #0f3997;
+    `}
+`;
+
+export const WaveContainer = styled.div`
+  z-index: 1;
+`;
+
+export const AudioDuration = styled.span`
+  display: block;
+  font-size: 14px;
+  opacity: 0.8;
 `;
 
 export const TypingBubble = styled(Bubble)`
