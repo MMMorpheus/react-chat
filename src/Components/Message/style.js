@@ -49,6 +49,21 @@ export const AvatarContainer = styled.div`
   }
 `;
 
+export const Gradient = styled.div`
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    150deg,
+    ${(props) => props.$colors.color} 50%,
+    ${(props) => props.$colors.lightColor} 100%
+  );
+  color: #ffff;
+  font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 // Content container wrapps bubble with text || typing buble || audio buble || attach's and set position for hints (isRead and createdAt)
 export const Content = styled.div`
   max-width: 450px;
@@ -82,7 +97,6 @@ export const TextBubble = styled(Bubble)`
   font-size: 14px;
   line-height: 20px;
 `;
-
 
 export const TypingBubble = styled(Bubble)`
   width: 100px;

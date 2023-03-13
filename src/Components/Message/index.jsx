@@ -5,29 +5,29 @@ import AudioMsg from "../AudioMsg";
 import * as M from "./style";
 import { Text } from "../Styles";
 
-import { formatTime } from "../../utils";
-
+import { formatTime, colorGenerator } from "../../utils";
 
 const Message = ({
-  user,
+  user: { fullname, avatar, hash },
   text,
   attachments,
   isMe,
   isRead,
   isTyping,
   created_at,
-  audio
+  audio,
 }) => {
-  
   return (
     <M.StyledMessage $isMe={isMe}>
-
       <M.AvatarContainer $isMe={isMe}>
-        <img src={user.avatar} alt={`${user.fullname} avatar`} />
+        {avatar ? (
+          <img src={avatar} alt={`${fullname} avatar`} />
+        ) : (
+          <M.Gradient $colors={colorGenerator(hash)}>{fullname[0].toUpperCase()}</M.Gradient>
+        )}
       </M.AvatarContainer>
 
       <M.Content>
-
         {/* Rendering typing animation */}
 
         {isTyping && !text && (
@@ -37,7 +37,7 @@ const Message = ({
               <M.Dot />
               <M.Dot />
             </M.TypingBubble>
-            <M.Hint>{`${user.fullname} печатает...`}</M.Hint>
+            <M.Hint>{`${fullname} печатает...`}</M.Hint>
           </>
         )}
 
@@ -51,7 +51,7 @@ const Message = ({
 
         {/* Rendering audio bubble if audio is existing */}
 
-        {audio && <AudioMsg audio={audio} isMe={isMe}/>}
+        {audio && <AudioMsg audio={audio} isMe={isMe} />}
 
         {/* Rendering big picture if it is only one*/}
 
@@ -65,9 +65,9 @@ const Message = ({
 
         {text && (
           <M.AttachmentList>
-            {attachments?.map((elem) => {
+            {attachments?.map((elem, index) => {
               return (
-                <M.SmallAttachmentItem>
+                <M.SmallAttachmentItem as="li" key={index}>
                   <img src={elem.url} alt={elem.filename} />
                 </M.SmallAttachmentItem>
               );
@@ -85,7 +85,6 @@ const Message = ({
       {/* Rendering double-check if user has alrealy typed msg and has read it*/}
 
       {!isTyping && <M.IsRead $isMe={isMe} $isRead={isRead} />}
-      
     </M.StyledMessage>
   );
 };
