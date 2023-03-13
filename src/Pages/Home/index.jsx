@@ -30,9 +30,10 @@ const Home = () => {
           {url: 'https://source.unsplash.com/250x250/?random=2&water,nature', filename: 'picture.jpg'},
           {url: 'https://source.unsplash.com/250x250/?random=3&water,nature', filename: 'picture.jpg'},
         ]} audio={null}/>
+       
         <Message created_at={new Date(2023,2,5,10)} user = {user} attachments={[
           {url: 'https://source.unsplash.com/250x250/?random=1&water,nature', filename: 'picture.jpg'}
-        ]} audio={null}/>
+        ]} audio={null}/> 
         <Message created_at={new Date(2023,2,5,10)} user = {user} attachments={[]} audio={testAudio}/>
         <Message created_at={new Date(2023,2,5,10)} isMe user = {user} attachments={[]} audio={testAudio}/>
       </Dialog>

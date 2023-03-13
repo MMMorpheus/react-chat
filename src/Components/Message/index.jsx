@@ -5,8 +5,8 @@ import * as M from "./style";
 import { Text } from "../Styles";
 
 import { formatTime } from "../../utils";
-import whiteWaves from "../../assets/img/waves-white.svg"
-import blueWaves from "../../assets/img/waves-blue.svg"
+import whiteWaves from "../../assets/img/waves-white.svg";
+import blueWaves from "../../assets/img/waves-blue.svg";
 
 const Message = ({
   user,
@@ -21,15 +21,39 @@ const Message = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const audioElem = useRef(null);
 
-  function togglePlay () {
-    audioElem.current.play();
+  function togglePlay() {
+    if (!isPlaying) {
+      audioElem.current.play();
+    } else {
+      audioElem.current.pause();
+    }
   }
 
   useEffect(() => {
-    audioElem.current.addEventListener("playing", () => {
-      setIsPlaying(true);
-    }, false)
-  }, [])
+    if (audio) {
+      audioElem.current.addEventListener(
+        "playing",
+        () => {
+          setIsPlaying(true);
+        },
+        false
+      );
+      audioElem.current.addEventListener(
+        "pause",
+        () => {
+          setIsPlaying(false);
+        },
+        false
+      );
+      audioElem.current.addEventListener(
+        "ended",
+        () => {
+          setIsPlaying(false);
+        },
+        false
+      );
+    }
+  }, []);
 
   return (
     <M.StyledMessage $isMe={isMe}>
@@ -38,7 +62,6 @@ const Message = ({
       </M.AvatarContainer>
 
       <M.Content>
-
         {/* Rendering typing animation */}
 
         {isTyping && !text && (
@@ -64,7 +87,7 @@ const Message = ({
 
         {audio && (
           <M.AudioBubble $isMe={isMe}>
-            <audio ref={audioElem} src={audio}/>
+            <audio ref={audioElem} src={audio} />
             <M.AudioProgressBar />
             <M.Controls $isMe={isMe} onClick={togglePlay}>
               {isPlaying ? (
@@ -117,4 +140,3 @@ const Message = ({
 };
 
 export default Message;
-
