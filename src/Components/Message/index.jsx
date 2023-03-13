@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
+import AudioMsg from "../AudioMsg";
 
 // M means styled components for Message component;
 import * as M from "./style";
 import { Text } from "../Styles";
 
 import { formatTime } from "../../utils";
-import whiteWaves from "../../assets/img/waves-white.svg";
-import blueWaves from "../../assets/img/waves-blue.svg";
+
 
 const Message = ({
   user,
@@ -16,52 +16,18 @@ const Message = ({
   isRead,
   isTyping,
   created_at,
-  audio,
+  audio
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioElem = useRef(null);
-
-  function togglePlay() {
-    if (!isPlaying) {
-      audioElem.current.play();
-    } else {
-      audioElem.current.pause();
-    }
-  }
-
-  useEffect(() => {
-    if (audio) {
-      audioElem.current.addEventListener(
-        "playing",
-        () => {
-          setIsPlaying(true);
-        },
-        false
-      );
-      audioElem.current.addEventListener(
-        "pause",
-        () => {
-          setIsPlaying(false);
-        },
-        false
-      );
-      audioElem.current.addEventListener(
-        "ended",
-        () => {
-          setIsPlaying(false);
-        },
-        false
-      );
-    }
-  }, []);
-
+  
   return (
     <M.StyledMessage $isMe={isMe}>
+
       <M.AvatarContainer $isMe={isMe}>
         <img src={user.avatar} alt={`${user.fullname} avatar`} />
       </M.AvatarContainer>
 
       <M.Content>
+
         {/* Rendering typing animation */}
 
         {isTyping && !text && (
@@ -85,23 +51,7 @@ const Message = ({
 
         {/* Rendering audio bubble if audio is existing */}
 
-        {audio && (
-          <M.AudioBubble $isMe={isMe}>
-            <audio ref={audioElem} src={audio} />
-            <M.AudioProgressBar />
-            <M.Controls $isMe={isMe} onClick={togglePlay}>
-              {isPlaying ? (
-                <M.PlayBtn $isMe={isMe} />
-              ) : (
-                <M.PauseBtn $isMe={isMe} />
-              )}
-            </M.Controls>
-            <M.WaveContainer>
-              <img src={isMe ? blueWaves : whiteWaves} alt="audio-waves" />
-            </M.WaveContainer>
-            <M.AudioDuration>00:21</M.AudioDuration>
-          </M.AudioBubble>
-        )}
+        {audio && <AudioMsg audio={audio} isMe={isMe}/>}
 
         {/* Rendering big picture if it is only one*/}
 
@@ -135,6 +85,7 @@ const Message = ({
       {/* Rendering double-check if user has alrealy typed msg and has read it*/}
 
       {!isTyping && <M.IsRead $isMe={isMe} $isRead={isRead} />}
+      
     </M.StyledMessage>
   );
 };

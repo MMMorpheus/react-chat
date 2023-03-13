@@ -1,5 +1,6 @@
 export {default as Button} from './Button';
 export {default as Block} from './Block';
 export {default as Message} from './Message';
+export {default as AudioMsg} from './AudioMsg';
 export {default as Input} from './Input';
 export {default as DialogPreview} from './DialogPreview';
