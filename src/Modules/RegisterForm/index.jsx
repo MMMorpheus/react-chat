@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Button, Block, Input } from "../../Components";
-import { ConfirmRegister } from "../";
-import * as C from "../../Components/Styles";
+import { ConfirmPlaceholder, AuthInput } from "@/Components";
+import * as C from "@/Components/Styles";
 import { User, Envelope, Lock } from "@styled-icons/boxicons-regular";
 import { Formik, Form } from "formik";
-import { REGISTER_SCHEMA } from "../../utils/schemas";
+import { REGISTER_SCHEMA } from "@/utils/schemas";
 
 const RegisterForm = () => {
   const [isFetching, setIsFetching] = useState(false);
@@ -28,36 +27,36 @@ const RegisterForm = () => {
       onSubmit={handleSubmit}
       validationSchema={REGISTER_SCHEMA}
     >
-      <C.FormContainer>
+      <C.FormContainer as="section" $column>
         <Form>
-          <C.Title>Регистрация</C.Title>
-          <C.SubTitle>Для входа в чат Вам нужно зарегистрироваться</C.SubTitle>
+          <C.AuthTitle>Регистрация</C.AuthTitle>
+          <C.AuthSubTitle>Для входа в чат Вам нужно зарегистрироваться</C.AuthSubTitle>
 
           {isFetching ? (
-            <ConfirmRegister />
+            <ConfirmPlaceholder />
           ) : (
-            <Block column jc="space-between" height="550px">
+            <C.AuthBlock $column $jc="space-between" $height="550px">
               <C.Label>
-                <Input name="email" placeholder="Адресс електронной почты" />
+                <AuthInput name="email" placeholder="Адресс електронной почты" />
                 <C.FormIconStyleWrapper>
                   <Envelope />
                 </C.FormIconStyleWrapper>
               </C.Label>
 
               <C.Label>
-                <Input name="name" placeholder="Ваше имя" />
+                <AuthInput name="name" placeholder="Ваше имя" />
                 <C.FormIconStyleWrapper>
                   <User />
                 </C.FormIconStyleWrapper>
               </C.Label>
               <C.Label>
-                <Input name="password" type="password" placeholder="Пароль" />
+                <AuthInput name="password" type="password" placeholder="Пароль" />
                 <C.FormIconStyleWrapper>
                   <Lock />
                 </C.FormIconStyleWrapper>
               </C.Label>
               <C.Label>
-                <Input
+                <AuthInput
                   name="passwordConfirmation"
                   type="password"
                   placeholder="Повторите пароль"
@@ -66,9 +65,9 @@ const RegisterForm = () => {
                   <Lock />
                 </C.FormIconStyleWrapper>
               </C.Label>
-              <Button type="submit">Зарегистрироваться</Button>
+              <C.StyledButton type="submit">Зарегистрироваться</C.StyledButton>
               <C.Linky to={"/login"}>Войти в аккаунт</C.Linky>
-            </Block>
+            </C.AuthBlock>
           )}
         </Form>
       </C.FormContainer>

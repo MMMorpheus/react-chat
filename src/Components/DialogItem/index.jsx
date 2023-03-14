@@ -1,9 +1,10 @@
 import React from "react";
-import * as D from "./style";
-import {Avatar} from "../";
-import { formatTime } from "../../utils";
+import {Avatar} from "@/Components";
+import { formatTime } from "@/utils";
 
-const DialogPreview = ({
+import * as D from "./style";
+
+const DialogItem = ({
   content: {
     createdAt,
     text,
@@ -15,14 +16,13 @@ const DialogPreview = ({
   isOnline,
 }) => {
   return (
-    <D.Preview>
-      <D.AvatarContainer>
+    <D.Item>
+      <D.AvatarContainer $isOnline={isOnline}>
         <Avatar user={user}/>
-        {isOnline && <D.Online />}
       </D.AvatarContainer>
-      <D.Info>
+      <D.Content>
         <D.Fullname>{user.fullName}</D.Fullname>
-        <D.LastMessage>{text}</D.LastMessage>
+        <D.Message>{text}</D.Message>
         {/* Rendering amount of unread msg */}
         {!isMe && unread ? (
           <D.Unread>{unread}</D.Unread>
@@ -34,9 +34,9 @@ const DialogPreview = ({
         )}
         {/* Rendering createdAt time */}
         <D.CreatedAt>{formatTime(createdAt)}</D.CreatedAt>
-      </D.Info>
-    </D.Preview>
+      </D.Content>
+    </D.Item>
   );
 };
 
-export default DialogPreview;
+export default DialogItem;

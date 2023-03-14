@@ -4,11 +4,7 @@ import styled from "styled-components";
 
 
 const AppWrapper = styled.main`
-  width: 100%;
-  height: 100%;
-  color: #202020;
-  display: flex;
-  align-items: center;
+  background-color: #f4f7fd;
 `;
 
 const App = () => {

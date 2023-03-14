@@ -1,9 +1,9 @@
 import React from "react";
-import { Button, Block, Input } from "../../Components";
-import * as C from "../../Components/Styles";
+import { AuthInput } from "@/Components";
+import * as C from "@/Components/Styles";
 import { Envelope, Lock } from "@styled-icons/boxicons-regular";
 import { Formik, Form } from "formik";
-import { LOG_IN_SCHEMA } from "../../utils/schemas";
+import { LOG_IN_SCHEMA } from "@/utils/schemas";
 
 const initialValues = {
   email: '',
@@ -13,27 +13,27 @@ const initialValues = {
 const LoginForm = () => {
   return (
     <Formik initialValues={initialValues} validationSchema={LOG_IN_SCHEMA}>
-    <C.FormContainer>
+    <C.FormContainer as="section" $column>
       <Form>
-        <C.Title>Войти в аккаунт</C.Title>
-        <C.SubTitle>Пожалуйста, войдите в свой аккаунт</C.SubTitle>
-        <Block column jc="space-between" height="400px">
+        <C.AuthTitle>Войти в аккаунт</C.AuthTitle>
+        <C.AuthSubTitle>Пожалуйста, войдите в свой аккаунт</C.AuthSubTitle>
+        <C.AuthBlock $column $jc="space-between" $height="400px">
           <C.Label>
-            <Input name="email" type="email" placeholder="Адресс електронной почты" />
+            <AuthInput name="email" type="email" placeholder="Адресс електронной почты" />
             <C.FormIconStyleWrapper>
               <Envelope />
             </C.FormIconStyleWrapper>
           </C.Label>
           <C.Label>
-            <Input name="password" type="password" placeholder="Пароль"/>
+            <AuthInput name="password" type="password" placeholder="Пароль"/>
             <C.FormIconStyleWrapper>
               <Lock />
             </C.FormIconStyleWrapper>
           </C.Label>
 
-          <Button>Войти в аккаунт</Button>
+          <C.StyledButton>Войти в аккаунт</C.StyledButton>
           <C.Linky to={"/register"}>Зарегистрироваться</C.Linky>
-        </Block>
+        </C.AuthBlock>
       </Form>
     </C.FormContainer>
     </Formik>

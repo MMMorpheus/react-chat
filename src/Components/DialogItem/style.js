@@ -1,53 +1,59 @@
 import styled, { css } from "styled-components";
 import { CheckDouble } from "@styled-icons/boxicons-regular";
 
-export const Preview = styled.div`
+export const Item = styled.li`
   display: flex;
-  gap: 15px;
+  align-items: center;
   height: 80px;
+  cursor: pointer;
+  padding-right: 5px;
 `;
 export const AvatarContainer = styled.div`
-  margin: 0;
-  align-self: center;
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 400;
   & img {
     width: 100%;
   }
   position: relative;
+  &::after {
+    content: "";
+    display: none;
+    ${(props) =>
+      props.$isOnline &&
+      css`
+        display: block;
+      `}
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+    border: 3px solid white;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+  }
 `;
 
-export const Online = styled.div`
-  width: 15px;
-  height: 15px;
-  background-color: green;
-  border-radius: 50%;
-  border: 3px solid white;
-  position: absolute;
-  z-index: 2;
-  bottom: 5px;
-  right: 2px;
-`;
-export const Info = styled.div`
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+export const Content = styled.div`
+  flex: 1;
+  margin-left: 10px;
   position: relative;
 `;
 
 export const Fullname = styled.div`
   font-weight: 600;
-  font-size: 18px;
+  margin-bottom: 5px;
+  font-size: 17px;
 `;
-export const LastMessage = styled.div`
+export const Message = styled.p`
   opacity: 0.7;
   font-size: 14px;
-  max-width: 245px;
+  max-width: 210px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -60,8 +66,8 @@ export const NotificationContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 15px;
-  right: 30px;
+  bottom: -2px;
+  right: 0px;
 `;
 
 export const Unread = styled(NotificationContainer)`
@@ -85,6 +91,6 @@ export const CreatedAt = styled.span`
   font-size: 12px;
   opacity: 0.5;
   position: absolute;
-  top: 15px;
-  right: 30px;
+  top: 0;
+  right: 0;
 `;

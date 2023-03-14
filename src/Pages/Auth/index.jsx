@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { LoginForm, RegisterForm } from "../../Modules";
+import { LoginForm, RegisterForm } from "@/Modules";
 
 import styled from "styled-components";
 

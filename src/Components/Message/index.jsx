@@ -1,11 +1,10 @@
 import React from "react";
-import {AudioMsg, Avatar} from "../";
+import {AudioMsg, Avatar} from "@/Components";
+import { formatTime } from "@/utils";
 
-// M means styled components for Message component;
 import * as M from "./style";
-import { Text } from "../Styles";
 
-import { formatTime } from "../../utils";
+
 
 const Message = ({
   user,
@@ -41,7 +40,7 @@ const Message = ({
 
         {text && (
           <M.TextBubble $isMe={isMe}>
-            <Text>{text}</Text>
+            <p>{text}</p>
           </M.TextBubble>
         )}
 

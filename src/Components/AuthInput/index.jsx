@@ -1,6 +1,7 @@
 import React from "react";
-import styled, { css } from "styled-components";
 import { Field } from "formik";
+
+import styled, { css } from "styled-components";
 
 const StyledInput = styled.input`
   width: 300px;
@@ -32,7 +33,7 @@ const StyledError = styled.div`
     max-width: 280px;
 `
 
-const Input = ({ name, type, placeholder, ...props }) => {
+const AuthInput = ({ name, type, placeholder, ...props }) => {
   return (
     <Field name={name}>
       {({ field, form, meta }) => (
@@ -55,4 +56,4 @@ const Input = ({ name, type, placeholder, ...props }) => {
   );
 };
 
-export default Input;
+export default AuthInput;

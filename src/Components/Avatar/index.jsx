@@ -1,6 +1,7 @@
 import React from "react";
+import { colorGenerator } from "@/utils";
+
 import styled from 'styled-components';
-import { colorGenerator } from "../../utils";
 
 const Gradient = styled.div`
   width: 100%;
@@ -17,12 +18,12 @@ const Gradient = styled.div`
   align-items: center;
 `;
 
-const Avatar = ({ user: { fullname, avatar, hash } }) => {
+const Avatar = ({ user: { fullName, avatar, hash } }) => {
   return avatar ? (
-    <img src={avatar} alt={`${fullname} avatar`} />
+    <img src={avatar} alt={`${fullName} avatar`} />
   ) : (
     <Gradient $colors={colorGenerator(hash)}>
-      {fullname[0].toUpperCase()}
+      {fullName[0].toUpperCase()}
     </Gradient>
   );
 };

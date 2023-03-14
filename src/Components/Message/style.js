@@ -35,6 +35,8 @@ export const AvatarContainer = styled.div`
   border-radius: 50%;
   width: 33px;
   height: 33px;
+  font-size: 12px;
+  line-height: 38px;
   overflow: hidden;
   margin-bottom: 8px;
   margin-right: 13px;

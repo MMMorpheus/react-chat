@@ -3,9 +3,10 @@ import { SearchAlt2 } from "@styled-icons/boxicons-regular";
 
 export const StyledAside = styled.aside`
   padding: 20px 10px;
-  flex: 0 1 30%;
+  width: 320px;
   min-height: 100%;
-  background-color: #ECF0F1;
+  border-right: 1px solid #f7f8f9;
+  background-color: #fff;
 `;
 
 export const HeaderContainer = styled.div`
@@ -47,6 +48,7 @@ export const SearchField = styled.input`
   border-radius: 4px;
   text-indent: 30px;
   font-size: 18px;
+  background-color: #f7f8f9;
   &::placeholder {
     font-size: 15px;
   }

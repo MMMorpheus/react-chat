@@ -1,7 +1,7 @@
-export {default as Button} from './Button';
-export {default as Block} from './Block';
 export {default as Avatar} from './Avatar';
 export {default as Message} from './Message';
 export {default as AudioMsg} from './AudioMsg';
-export {default as Input} from './Input';
-export {default as DialogPreview} from './DialogPreview';
+export {default as AuthInput} from './AuthInput';
+export {default as DialogItem} from './DialogItem';
+export {default as DialogList} from './DialogList';
+export {default as ConfirmPlaceholder} from './ConfirmPlaceholder';

@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-import * as M from "./style";
+import { convertTime } from "@/utils";
+import whiteWaves from "@/assets/img/waves-white.svg";
+import blueWaves from "@/assets/img/waves-blue.svg";
 
-import { convertTime } from "../../utils";
-import whiteWaves from "../../assets/img/waves-white.svg";
-import blueWaves from "../../assets/img/waves-blue.svg";
+import * as M from "./style";
 
 const AudioMsg = ({ audio, isMe }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState("");
   const [currentTime, setCurrentTime] = useState(0);
+  
   const audioElem = useRef(null);
 
   function togglePlay() {
@@ -58,7 +59,7 @@ const AudioMsg = ({ audio, isMe }) => {
         {!isPlaying ? <M.PlayBtn $isMe={isMe} /> : <M.PauseBtn $isMe={isMe} />}
       </M.Controls>
       <M.WaveContainer>
-        <img src={isMe ? blueWaves : whiteWaves} alt="audio-waves" />
+        <img src={isMe ? blueWaves : whiteWaves} alt="audio-waves.svg" />
       </M.WaveContainer>
       <M.AudioDuration>{convertTime(currentTime)}</M.AudioDuration>
     </M.AudioBubble>
