@@ -1,14 +1,16 @@
 import styled, { css } from "styled-components";
 import { CheckDouble } from "@styled-icons/boxicons-regular";
+import { flexColumnCenter, read, unRead } from "@/Styles/styles";
 
-export const Item = styled.li`
+export const DgItem = styled.li`
+  height: 80px;
+  padding-right: 5px;
   display: flex;
   align-items: center;
-  height: 80px;
   cursor: pointer;
-  padding-right: 5px;
 `;
-export const AvatarContainer = styled.div`
+
+export const DialogAvatarContainer = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -39,18 +41,18 @@ export const AvatarContainer = styled.div`
   }
 `;
 
-export const Content = styled.div`
+export const DialogContent = styled.div`
   flex: 1;
   margin-left: 10px;
   position: relative;
 `;
 
-export const Fullname = styled.div`
+export const DialogFullname = styled.div`
   font-weight: 600;
   margin-bottom: 5px;
   font-size: 17px;
 `;
-export const Message = styled.p`
+export const DialogMessage = styled.p`
   opacity: 0.7;
   font-size: 14px;
   max-width: 210px;
@@ -62,9 +64,7 @@ export const Message = styled.p`
 export const NotificationContainer = styled.div`
   width: 20px;
   height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${flexColumnCenter};
   position: absolute;
   bottom: -2px;
   right: 0px;
@@ -78,15 +78,15 @@ export const Unread = styled(NotificationContainer)`
 `;
 
 export const isRead = styled(CheckDouble)`
-  color: #b7b7b7;
+  ${unRead}
   ${(props) =>
     props.$isRead &&
     css`
-      color: #484fec;
+      ${read}
     `}
 `;
 
-export const CreatedAt = styled.span`
+export const DialogCreatedAt = styled.span`
   display: block;
   font-size: 12px;
   opacity: 0.5;

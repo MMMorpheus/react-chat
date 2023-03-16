@@ -2,23 +2,20 @@ import React, {useState} from "react";
 import { LoginForm, RegisterForm } from "@/Modules";
 
 import styled from "styled-components";
-
-const StyledAuth = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-`;
+import { flexColumnCenter } from "@/Styles/styles";
 
 const Auth = () => {
   const [authed, setAuthed] = useState(false);
 
   return (
     <StyledAuth>
-      { !authed ? <LoginForm /> : <RegisterForm /> }
+      { authed ? <LoginForm /> : <RegisterForm /> }
     </StyledAuth>
   );
 };
 
+
+const StyledAuth = styled.section`
+  ${flexColumnCenter}
+`;
 export default Auth;

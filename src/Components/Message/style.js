@@ -1,5 +1,5 @@
-import styled, { css, keyframes } from "styled-components";
-import { CheckDouble, Play, Pause } from "@styled-icons/boxicons-regular";
+import styled, {css, keyframes} from 'styled-components';
+import { CheckDouble } from '@styled-icons/boxicons-regular';
 
 const typingAnimation = keyframes`
   0% {
@@ -31,7 +31,7 @@ export const StyledMessage = styled.div`
 `;
 
 // Avatar box - prop $isMe sets margins due to right-to-left content layout
-export const AvatarContainer = styled.div`
+export const MessageAvatarContainer = styled.div`
   border-radius: 50%;
   width: 33px;
   height: 33px;

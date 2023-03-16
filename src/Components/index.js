@@ -5,3 +5,6 @@ export {default as AuthInput} from './AuthInput';
 export {default as DialogItem} from './DialogItem';
 export {default as DialogList} from './DialogList';
 export {default as ConfirmPlaceholder} from './ConfirmPlaceholder';
+export {default as InputBar} from './InputBar';
+export {default as MessageList} from './MessageList';
+export {default as StatusBar} from './StatusBar';

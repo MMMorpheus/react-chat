@@ -2,7 +2,7 @@ import React from "react";
 import {AudioMsg, Avatar} from "@/Components";
 import { formatTime } from "@/utils";
 
-import * as M from "./style";
+import * as C from "./style";
 
 
 
@@ -17,31 +17,31 @@ const Message = ({
   audio,
 }) => {
   return (
-    <M.StyledMessage $isMe={isMe}>
-      <M.AvatarContainer $isMe={isMe}>
+    <C.StyledMessage $isMe={isMe}>
+      <C.MessageAvatarContainer $isMe={isMe}>
         <Avatar user={user} />
-      </M.AvatarContainer>
+      </C.MessageAvatarContainer>
 
-      <M.Content>
+      <C.Content>
         {/* Rendering typing animation */}
 
         {isTyping && !text && (
           <>
-            <M.TypingBubble>
-              <M.Dot />
-              <M.Dot />
-              <M.Dot />
-            </M.TypingBubble>
-            <M.Hint>{`${user.fullname} печатает...`}</M.Hint>
+            <C.TypingBubble>
+              <C.Dot />
+              <C.Dot />
+              <C.Dot />
+            </C.TypingBubble>
+            <C.Hint>{`${user.fullname} печатает...`}</C.Hint>
           </>
         )}
 
         {/* Rendering msg bubble if text is existing*/}
 
         {text && (
-          <M.TextBubble $isMe={isMe}>
+          <C.TextBubble $isMe={isMe}>
             <p>{text}</p>
-          </M.TextBubble>
+          </C.TextBubble>
         )}
 
         {/* Rendering audio bubble if audio is existing */}
@@ -51,36 +51,36 @@ const Message = ({
         {/* Rendering big picture if it is only one*/}
 
         {!text && attachments?.length === 1 && (
-          <M.BigAttachmentItem>
+          <C.BigAttachmentItem>
             <img src={attachments[0].url} alt={attachments[0].filename} />
-          </M.BigAttachmentItem>
+          </C.BigAttachmentItem>
         )}
 
         {/* Rendering all passed pictures if text is existing*/}
 
         {text && (
-          <M.AttachmentList>
+          <C.AttachmentList>
             {attachments?.map((elem, index) => {
               return (
-                <M.SmallAttachmentItem as="li" key={index}>
-                  <img src={elem.url} alt={elem.filename} />
-                </M.SmallAttachmentItem>
+                <C.SmallAttachmentItem as="li" key={index}>
+                  <img src={eleC.url} alt={eleC.filename} />
+                </C.SmallAttachmentItem>
               );
             })}
-          </M.AttachmentList>
+          </C.AttachmentList>
         )}
 
         {/* Rendering createdAt hint if user isn't typing*/}
 
         {!isTyping && (
-          <M.CreatedAt $isMe={isMe}>{formatTime(created_at)}</M.CreatedAt>
+          <C.CreatedAt $isMe={isMe}>{formatTime(created_at)}</C.CreatedAt>
         )}
-      </M.Content>
+      </C.Content>
 
       {/* Rendering double-check if user has alrealy typed msg and has read it*/}
 
-      {!isTyping && <M.IsRead $isMe={isMe} $isRead={isRead} />}
-    </M.StyledMessage>
+      {!isTyping && <C.IsRead $isMe={isMe} $isRead={isRead} />}
+    </C.StyledMessage>
   );
 };
 

@@ -1,10 +1,9 @@
-import styled, { css } from "styled-components";
-import { Bubble } from "../Message/style";
-import { Play, Pause } from "@styled-icons/boxicons-regular";
+import styled, {css} from 'styled-components';
+import { Bubble } from '../Message/style';
+import { Play, Pause } from '@styled-icons/boxicons-regular';
 
 export const AudioBubble = styled(Bubble)`
   width: 300px;
-  /* max-width: 300px; */
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -24,7 +23,7 @@ export const AudioProgressBar = styled.div`
   transition: width 0.5s ease;
 `;
 
-export const Controls = styled.button`
+export const AudioControls = styled.button`
   width: 40px;
   height: 40px;
   background-color: #0f3997;
@@ -64,7 +63,7 @@ export const PauseBtn = styled(Pause)`
     `}
 `;
 
-export const WaveContainer = styled.div`
+export const AudioWaves = styled.div`
   z-index: 1;
 `;
 

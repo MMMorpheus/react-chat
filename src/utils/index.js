@@ -30,8 +30,8 @@ const isValidRGB = number => {
 export const colorGenerator = (hash) => {
     const [r, g, b] = hash.substring(0, 3).split('').map(char => isValidRGB(char.charCodeAt(0)));
     return {
-        color: tinycolor({r, g, b}).toHexString(),
-        lightColor: tinycolor({r, g, b}).lighten(40).toHexString(),
+        color: tinycolor({r, g, b}).lighten(10).saturate(30).toHexString(),
+        lightColor: tinycolor({r, g, b}).lighten(40).saturate(30).toHexString(),
     }
         
 }

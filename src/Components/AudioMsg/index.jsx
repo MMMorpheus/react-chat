@@ -3,7 +3,7 @@ import { convertTime } from "@/utils";
 import whiteWaves from "@/assets/img/waves-white.svg";
 import blueWaves from "@/assets/img/waves-blue.svg";
 
-import * as M from "./style";
+import * as C from "./style";
 
 const AudioMsg = ({ audio, isMe }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -52,17 +52,17 @@ const AudioMsg = ({ audio, isMe }) => {
     });
   }, []);
   return (
-    <M.AudioBubble $isMe={isMe}>
+    <C.AudioBubble $isMe={isMe}>
       <audio ref={audioElem} src={audio} />
-      <M.AudioProgressBar $width={progress} />
-      <M.Controls $isMe={isMe} onClick={togglePlay}>
-        {!isPlaying ? <M.PlayBtn $isMe={isMe} /> : <M.PauseBtn $isMe={isMe} />}
-      </M.Controls>
-      <M.WaveContainer>
-        <img src={isMe ? blueWaves : whiteWaves} alt="audio-waves.svg" />
-      </M.WaveContainer>
-      <M.AudioDuration>{convertTime(currentTime)}</M.AudioDuration>
-    </M.AudioBubble>
+      <C.AudioProgressBar $width={progress} />
+      <C.AudioControls $isMe={isMe} onClick={togglePlay}>
+        {!isPlaying ? <C.PlayBtn $isMe={isMe} /> : <C.PauseBtn $isMe={isMe} />}
+      </C.AudioControls>
+      <C.AudioWaves>
+        <img src={isMe ? blueWaves : whiteWaves} alt="audio-waveC.svg" />
+      </C.AudioWaves>
+      <C.AudioDuration>{convertTime(currentTime)}</C.AudioDuration>
+    </C.AudioBubble>
   );
 };
 

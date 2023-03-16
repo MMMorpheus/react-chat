@@ -4,7 +4,7 @@ import { DialogList } from "@/Components";
 import { items } from "../../TestObj";
 
 
-import * as L from "./style";
+import * as C from "./style";
 import { Messages } from "@styled-icons/typicons";
 import { Edit } from "@styled-icons/boxicons-regular";
 
@@ -12,24 +12,24 @@ const SideBar = ({ children, ...props }) => {
   
 
   return (
-    <L.StyledAside {...props}>
-      <L.HeaderContainer>
-        <L.HeaderTitle>
+    <C.StyledAside {...props}>
+      <C.HeaderContainer>
+        <div>
           <Messages size="22" color="#475767" />
-          <L.Title>Список диалогов</L.Title>
-          <L.Edit title="edit-button">
+          <h3>Список диалогов</h3>
+          <button title="edit-button">
             <Edit size="25" color="#475767" />
-          </L.Edit>
-        </L.HeaderTitle>
-        <L.Label>
-          <L.SearchField placeholder="Поиск среди контактов" />
-          <L.SearchIcon />
-        </L.Label>
-      </L.HeaderContainer>
+          </button>
+        </div>
+        <label>
+          <C.SearchField placeholder="Поиск среди контактов" />
+          <C.SearchIcon />
+        </label>
+      </C.HeaderContainer>
       
       <DialogList items={items}/>
 
-    </L.StyledAside>
+    </C.StyledAside>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ConfirmPlaceholder, AuthInput } from "@/Components";
-import * as C from "@/Components/Styles";
+import * as C from "../style";
 import { User, Envelope, Lock } from "@styled-icons/boxicons-regular";
 import { Formik, Form } from "formik";
 import { REGISTER_SCHEMA } from "@/utils/schemas";
@@ -27,7 +27,7 @@ const RegisterForm = () => {
       onSubmit={handleSubmit}
       validationSchema={REGISTER_SCHEMA}
     >
-      <C.FormContainer as="section" $column>
+      <article>
         <Form>
           <C.AuthTitle>Регистрация</C.AuthTitle>
           <C.AuthSubTitle>Для входа в чат Вам нужно зарегистрироваться</C.AuthSubTitle>
@@ -35,27 +35,27 @@ const RegisterForm = () => {
           {isFetching ? (
             <ConfirmPlaceholder />
           ) : (
-            <C.AuthBlock $column $jc="space-between" $height="550px">
-              <C.Label>
+            <C.AuthBlock $jc="space-between" $height="550px">
+              <label>
                 <AuthInput name="email" placeholder="Адресс електронной почты" />
                 <C.FormIconStyleWrapper>
                   <Envelope />
                 </C.FormIconStyleWrapper>
-              </C.Label>
+              </label>
 
-              <C.Label>
+              <label>
                 <AuthInput name="name" placeholder="Ваше имя" />
                 <C.FormIconStyleWrapper>
                   <User />
                 </C.FormIconStyleWrapper>
-              </C.Label>
-              <C.Label>
+              </label>
+              <label>
                 <AuthInput name="password" type="password" placeholder="Пароль" />
                 <C.FormIconStyleWrapper>
                   <Lock />
                 </C.FormIconStyleWrapper>
-              </C.Label>
-              <C.Label>
+              </label>
+              <label>
                 <AuthInput
                   name="passwordConfirmation"
                   type="password"
@@ -64,13 +64,13 @@ const RegisterForm = () => {
                 <C.FormIconStyleWrapper>
                   <Lock />
                 </C.FormIconStyleWrapper>
-              </C.Label>
-              <C.StyledButton type="submit">Зарегистрироваться</C.StyledButton>
-              <C.Linky to={"/login"}>Войти в аккаунт</C.Linky>
+              </label>
+              <C.AuthButton type="submit">Зарегистрироваться</C.AuthButton>
+              <C.RouterLink to={"/login"}>Войти в аккаунт</C.RouterLink>
             </C.AuthBlock>
           )}
         </Form>
-      </C.FormContainer>
+      </article>
     </Formik>
   );
 };
