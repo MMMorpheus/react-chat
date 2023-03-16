@@ -45,8 +45,12 @@ const TypeContainer = styled.div`
   & button {
     width: 25px;
     height: 25px;
-    opacity: 0.5;
     background-color: #fff;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+    &:hover{
+      opacity: 1;
+    }
   }
   & textarea {
     font-size: 16px;

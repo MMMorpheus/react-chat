@@ -9,6 +9,27 @@ export const DgItem = styled.li`
   align-items: center;
   cursor: pointer;
 `;
+export const isOnlineContainer = styled.div`
+  position: relative;
+  &::after {
+    content: "";
+    display: none;
+    ${(props) =>
+      props.$isOnline &&
+      css`
+        display: block;
+      `}
+    width: 15px;
+    height: 15px;
+    background-color: green;
+    border-radius: 50%;
+    border: 3px solid white;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+  }
+`;
 
 export const DialogAvatarContainer = styled.div`
   width: 50px;
@@ -19,25 +40,6 @@ export const DialogAvatarContainer = styled.div`
   font-weight: 400;
   & img {
     width: 100%;
-  }
-  position: relative;
-  &::after {
-    content: "";
-    display: none;
-    ${(props) =>
-      props.$isOnline &&
-      css`
-        display: block;
-      `}
-    width: 10px;
-    height: 10px;
-    background-color: green;
-    border-radius: 50%;
-    border: 3px solid white;
-    position: absolute;
-    z-index: 2;
-    bottom: 0;
-    right: 0;
   }
 `;
 

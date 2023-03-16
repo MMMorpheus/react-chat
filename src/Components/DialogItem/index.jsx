@@ -1,25 +1,20 @@
 import React from "react";
-import {Avatar} from "@/Components";
+import { Avatar } from "@/Components";
 import { formatTime } from "@/utils";
 
 import * as C from "./style";
 
 const DialogItem = ({
-  content: {
-    createdAt,
-    text,
-    isMe,
-    isRead,
-    unread,
-    user,
-  },
+  content: { createdAt, text, isMe, isRead, unread, user },
   isOnline,
 }) => {
   return (
     <C.DgItem>
-      <C.DialogAvatarContainer $isOnline={isOnline}>
-        <Avatar user={user}/>
-      </C.DialogAvatarContainer>
+      <C.isOnlineContainer $isOnline={isOnline}>
+        <C.DialogAvatarContainer >
+          <Avatar user={user} />
+        </C.DialogAvatarContainer>
+      </C.isOnlineContainer>
       <C.DialogContent>
         <C.DialogFullname>{user.fullName}</C.DialogFullname>
         <C.DialogMessage>{text}</C.DialogMessage>
