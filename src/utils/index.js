@@ -1,13 +1,13 @@
-import { isToday, formatDistanceToNow, format } from 'date-fns'
+import { isToday, formatDistanceToNow, format, parseISO } from 'date-fns'
 import { ru } from "date-fns/locale";
 import tinycolor from 'tinycolor2';
 
 
 export const formatTime = (created_at) => {
-    if(isToday(created_at)){
-        return formatDistanceToNow(created_at, { addSuffix: true, locale: ru })
+    if(isToday(parseISO(created_at))){
+        return formatDistanceToNow(parseISO(created_at), { addSuffix: true, locale: ru })
     } else {
-        return format(created_at, 'dd.MM.yy', {locale: ru})
+        return format(parseISO(created_at), 'dd.MM.yy', {locale: ru})
     }
 }
 

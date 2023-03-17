@@ -18,11 +18,11 @@ const Gradient = styled.div`
   align-items: center;
 `;
 
-const Avatar = ({ user: { fullName, avatar, hash } }) => {
+const Avatar = ({ user: { fullName, avatar, _id } }) => {
   return avatar ? (
     <img src={avatar} alt={`${fullName} avatar`} />
   ) : (
-    <Gradient $colors={colorGenerator(hash)}>
+    <Gradient $colors={colorGenerator(_id)}>
       {fullName[0].toUpperCase()}
     </Gradient>
   );

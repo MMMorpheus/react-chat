@@ -16,13 +16,18 @@ export const HeaderContainer = styled.div`
     display: flex;
     gap: 10px;
   }
-  & > h3 {
+  & h3 {
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
   }
   & button {
     margin-left: auto;
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
+    &:hover{
+      opacity: 1;
+    }
   }
 `;
 
@@ -47,6 +52,5 @@ export const SearchIcon = styled(SearchAlt2)`
   top: 20%;
   width: 22px;
   height: 22px;
-  color: #475767;
   z-index: 2;
 `;

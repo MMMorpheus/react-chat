@@ -57,7 +57,7 @@ export const DialogFullname = styled.div`
 export const DialogMessage = styled.p`
   opacity: 0.7;
   font-size: 14px;
-  max-width: 210px;
+  max-width: 200px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
