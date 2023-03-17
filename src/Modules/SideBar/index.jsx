@@ -34,6 +34,7 @@ const SideBar = ({ children, ...props }) => {
           <C.SearchField
             placeholder="Поиск среди контактов"
             onChange={filterBySearch}
+            value={searchValue}
           />
           <C.SearchIcon />
         </label>
