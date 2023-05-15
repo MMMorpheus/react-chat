@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, {css} from 'styled-components';
 import { flexColumnCenter } from '@/Styles/styles';
 import { DotsHorizontalRounded } from "@styled-icons/boxicons-regular";

@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import { LoginForm, RegisterForm } from "@/Modules";
 
 import styled from "styled-components";
 import { flexColumnCenter } from "@/Styles/styles";
 
 const Auth = () => {
-  const [authed, setAuthed] = useState(false);
+  const [authed, setAuthed] = useState<boolean>(false);
 
   return (
     <StyledAuth>

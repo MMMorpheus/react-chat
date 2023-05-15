@@ -1,16 +1,22 @@
-import React, { useState, useEffect, useRef } from "react";
-import { convertTime } from "@/utils";
-import whiteWaves from "@/assets/img/waves-white.svg";
-import blueWaves from "@/assets/img/waves-blue.svg";
+import { FC, useState, useEffect, useRef } from "react";
+// import { convertTime } from "utils";
+import { convertTime } from "utils";
+// import whiteWaves from "assets/img/waves-white.svg";
+// import blueWaves from "assets/img/waves-blue.svg";
 
 import * as C from "./style";
 
-const AudioMsg = ({ audio, isMe }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState("");
-  const [currentTime, setCurrentTime] = useState(0);
+interface IAudioMsgProps {
+  audio: any,
+  isMe: boolean
+}
+
+export const AudioMsg:FC<IAudioMsgProps> = ({ audio, isMe }) => {
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [progress, setProgress] = useState<string>("");
+  const [currentTime, setCurrentTime] = useState<number>(0);
   
-  const audioElem = useRef(null);
+  const audioElem = useRef<HTMLAudioElement>(null);
 
   function togglePlay() {
     if (!isPlaying) {
@@ -65,5 +71,3 @@ const AudioMsg = ({ audio, isMe }) => {
     </C.AudioBubble>
   );
 };
-
-export default AudioMsg;
