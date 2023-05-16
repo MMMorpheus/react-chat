@@ -1,7 +1,7 @@
-import {axios} from "@/core";
+// import {axios} from "@/core";
 
-export default {
-    getAll: () => {
-        axios.get("/dialogs")
-    }
-}
+// export default {
+//     getAll: () => {
+//         axios.get("/dialogs")
+//     }
+// }

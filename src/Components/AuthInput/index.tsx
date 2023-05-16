@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 interface IAuthInputProps {
   name: string;
-  type: string;
+  type?: string;
   placeholder: string;
 }
 

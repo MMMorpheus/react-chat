@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { ConfirmPlaceholder, AuthInput } from "@/Components";
+import { FC, useState } from "react";
+import { ConfirmPlaceholder, AuthInput } from "Components";
 import * as C from "../style";
 import { User, Envelope, Lock } from "@styled-icons/boxicons-regular";
 import { Formik, Form } from "formik";
-import { REGISTER_SCHEMA } from "@/utils/schemas";
+import { REGISTER_SCHEMA } from "utils/schemas";
 
-const RegisterForm = () => {
+export const RegisterForm:FC = () => {
   const [isFetching, setIsFetching] = useState(false);
 
   const handleSubmit = (values, formikBag) => {
@@ -74,5 +74,3 @@ const RegisterForm = () => {
     </Formik>
   );
 };
-
-export default RegisterForm;

@@ -1,16 +1,16 @@
-import React from "react";
-import { AuthInput } from "@/Components";
+import {FC} from "react";
+import { AuthInput } from "Components";
 import * as C from "../style";
 import { Envelope, Lock } from "@styled-icons/boxicons-regular";
 import { Formik, Form } from "formik";
-import { LOG_IN_SCHEMA } from "@/utils/schemas";
+import { LOG_IN_SCHEMA } from "utils/schemas";
 
 const initialValues = {
   email: '',
   password: ''
 }
 
-const LoginForm = () => {
+export const LoginForm: FC = () => {
   return (
     <Formik initialValues={initialValues} validationSchema={LOG_IN_SCHEMA}>
     <article>
@@ -39,5 +39,3 @@ const LoginForm = () => {
     </Formik>
   );
 };
-
-export default LoginForm;

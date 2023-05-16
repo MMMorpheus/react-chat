@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { DialogList } from "@/Components";
+import { FC, useState } from "react";
+import { DialogList } from "Components";
 
 import * as C from "./style";
 import { Messages } from "@styled-icons/typicons";
 import { Edit } from "@styled-icons/boxicons-regular";
 
 // Originally this data will be received as props from main component
-import data from "@/data";
+import data from "data";
 
-const SideBar = ({ children, ...props }) => {
-  const [searchValue, setSearchValue] = useState("");
-  const [filtered, setFiltered] = useState(Array.from(data));
+export const SideBar:FC = () => {
+  const [searchValue, setSearchValue] = useState<string>("");
+  const [filtered, setFiltered] = useState<any[]>(Array.from(data));
   
-  const filterBySearch = ({target: {value}}) => {
+  const filterBySearch = ({target: {value}}: React.ChangeEvent<HTMLInputElement>) => {
       setFiltered(
       data.filter((item) => item.user.fullName.toLowerCase().indexOf(value.toLowerCase()) >= 0)
     );
@@ -21,7 +21,7 @@ const SideBar = ({ children, ...props }) => {
   };
 
   return (
-    <C.StyledAside {...props}>
+    <C.StyledAside>
       <C.HeaderContainer>
         <div>
           <Messages size="22" color="#475767" />
@@ -44,5 +44,3 @@ const SideBar = ({ children, ...props }) => {
     </C.StyledAside>
   );
 };
-
-export default SideBar;

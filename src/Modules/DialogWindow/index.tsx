@@ -1,8 +1,13 @@
-import React from "react";
-import { InputBar, StatusBar, MessageList } from "@/components";
+import {FC, ReactNode} from "react";
+import { InputBar, StatusBar, MessageList } from "Components";
 import styled from "styled-components";
 
-const DialogWindow = ({user = {name: "Test", isOnline: true}, children}) => {
+interface IDialogWindowProps {
+  user?: any,
+  children?: ReactNode
+}
+
+export const DialogWindow:FC<IDialogWindowProps> = ({user = {name: "Test", isOnline: true}, children}) => {
   return (
     <Window>
       <StatusBar user={user} />
@@ -16,5 +21,3 @@ const Window = styled.section`
   flex: 1;
   background-color: #fff;
 `;
-
-export default DialogWindow;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { SideBar, DialogWindow } from "@/Modules";
-import { Auth } from "@/Pages";
+import { SideBar, DialogWindow } from "Modules";
+import { Auth } from "Pages";
 
 import styled from "styled-components";
 
