@@ -1,5 +1,6 @@
 # react_chat
-This is pet-pj React chat
+This is pet-pj React chat.
+
 It is in development progress at the moment
 
 Features overwiev:
