@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { FC, useState, useCallback } from "react";
 import styled from "styled-components";
 
 import {
@@ -8,15 +8,20 @@ import {
   Smile,
 } from "@styled-icons/boxicons-regular";
 
-const InputBar = () => {
+export const InputBar: FC = () => {
   const [value, setValue] = useState("");
-  const handleChange = (e) => setValue(e.target.value);
+
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setValue(e.target.value);
+  }, []);
+
   return (
-    <TypeContainer>
+    <TypeContainer onChange={handleChange}>
       <button>
         <Smile />
       </button>
-      <textarea placeholder="Введите текст сообщения" onChange={handleChange} />
+      <textarea placeholder="Введите текст сообщения" />
       <button>
         <Camera />
       </button>
@@ -33,7 +38,7 @@ const InputBar = () => {
   );
 };
 
-const TypeContainer = styled.div`
+const TypeContainer = styled.form`
   width: 90%;
   margin: 0 auto;
   padding: 10px 0;
@@ -42,17 +47,17 @@ const TypeContainer = styled.div`
   align-items: center;
   gap: 10px;
 
-  & button {
+  & > button {
     width: 25px;
     height: 25px;
     background-color: #fff;
     opacity: 0.5;
     transition: opacity 0.5s ease;
-    &:hover{
+    &:hover {
       opacity: 1;
     }
   }
-  & textarea {
+  & > textarea {
     font-size: 16px;
     flex: 1;
     resize: none;
@@ -62,5 +67,3 @@ const TypeContainer = styled.div`
     border-radius: 3px;
   }
 `;
-
-export default InputBar;

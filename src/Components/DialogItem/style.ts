@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { CheckDouble } from "@styled-icons/boxicons-regular";
-import { flexColumnCenter, read, unRead } from "@/Styles/styles";
+import { flexColumnCenter, read, unRead } from "Styles/styles";
+import { IsOnlineProp, IsReadProp } from "types/styledProps";
 
 export const DgItem = styled.li`
   height: 80px;
@@ -9,7 +10,7 @@ export const DgItem = styled.li`
   align-items: center;
   cursor: pointer;
 `;
-export const isOnlineContainer = styled.div`
+export const isOnlineContainer = styled.div<IsOnlineProp>`
   position: relative;
   &::after {
     content: "";
@@ -79,7 +80,7 @@ export const Unread = styled(NotificationContainer)`
   border-radius: 50%;
 `;
 
-export const isRead = styled(CheckDouble)`
+export const isRead = styled(CheckDouble)<IsReadProp>`
   ${unRead}
   ${(props) =>
     props.$isRead &&

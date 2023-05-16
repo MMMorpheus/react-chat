@@ -1,12 +1,22 @@
-import React from "react";
-import {AudioMsg, Avatar} from "@/Components";
-import { formatTime } from "@/utils";
+import { FC } from "react";
+import { AudioMsg, Avatar } from "Components";
+import { formatTime } from "utils";
 
 import * as C from "./style";
+import { IUser } from "types/user";
 
+interface IMessageProps {
+  user: IUser;
+  text: string;
+  attachments: any[];
+  isMe: boolean;
+  isRead: boolean;
+  isTyping: boolean;
+  created_at: string;
+  audio: any;
+}
 
-
-const Message = ({
+export const Message: FC<IMessageProps> = ({
   user,
   text,
   attachments,
@@ -32,7 +42,7 @@ const Message = ({
               <C.Dot />
               <C.Dot />
             </C.TypingBubble>
-            <C.Hint>{`${user.fullname} печатает...`}</C.Hint>
+            <C.Hint>{`${user.fullName} печатает...`}</C.Hint>
           </>
         )}
 
@@ -63,7 +73,7 @@ const Message = ({
             {attachments?.map((elem, index) => {
               return (
                 <C.SmallAttachmentItem as="li" key={index}>
-                  <img src={eleC.url} alt={eleC.filename} />
+                  <img src={elem.url} alt={elem.filename} />
                 </C.SmallAttachmentItem>
               );
             })}
@@ -83,5 +93,3 @@ const Message = ({
     </C.StyledMessage>
   );
 };
-
-export default Message;

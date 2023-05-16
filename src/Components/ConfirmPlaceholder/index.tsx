@@ -1,9 +1,8 @@
-import React from "react";
-import * as C from "@/Modules/AuthForm/style";
+import * as C from "Modules/AuthForm/style";
 import { ErrorCircle } from "@styled-icons/boxicons-regular";
 
 
-const ConfirmPlaceholder = () => {
+export const ConfirmPlaceholder = () => {
   return (
     <C.AuthBlock $jc="space-evenly" $height="550px">
       <ErrorCircle size="120" color="#467CEE"/>
@@ -14,5 +13,3 @@ const ConfirmPlaceholder = () => {
     </C.AuthBlock  >
   );
 };
-
-export default ConfirmPlaceholder;

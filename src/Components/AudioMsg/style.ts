@@ -1,6 +1,8 @@
 import styled, {css} from 'styled-components';
-import { Bubble } from '../Message/style';
 import { Play, Pause } from '@styled-icons/boxicons-regular';
+import { IsMeProp } from 'types/styledProps';
+
+import { Bubble } from 'components/Message/style';
 
 export const AudioBubble = styled(Bubble)`
   width: 300px;
@@ -12,7 +14,7 @@ export const AudioBubble = styled(Bubble)`
   overflow: hidden;
 `;
 
-export const AudioProgressBar = styled.div`
+export const AudioProgressBar = styled.div<{$width: string}>`
   width: ${props => props.$width || "0%"};
   background-color: #418fff;
   position: absolute;
@@ -23,7 +25,8 @@ export const AudioProgressBar = styled.div`
   transition: width 0.5s ease;
 `;
 
-export const AudioControls = styled.button`
+
+export const AudioControls = styled.button<IsMeProp>`
   width: 40px;
   height: 40px;
   background-color: #0f3997;
@@ -43,7 +46,7 @@ export const AudioControls = styled.button`
     `}
 `;
 
-export const PlayBtn = styled(Play)`
+export const PlayBtn = styled(Play)<IsMeProp>`
   width: 30px;
   padding-left: 3px;
   color: #fff;
@@ -53,7 +56,7 @@ export const PlayBtn = styled(Play)`
       color: #0f3997;
     `}
 `;
-export const PauseBtn = styled(Pause)`
+export const PauseBtn = styled(Pause)<IsMeProp>`
   width: 30px;
   color: #fff;
   ${(props) =>

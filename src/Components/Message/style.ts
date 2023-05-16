@@ -1,5 +1,6 @@
-import styled, {css, keyframes} from 'styled-components';
-import { CheckDouble } from '@styled-icons/boxicons-regular';
+import styled, { css, keyframes } from "styled-components";
+import { CheckDouble } from "@styled-icons/boxicons-regular";
+import { IsMeProp, IsReadProp } from "types/styledProps";
 
 const typingAnimation = keyframes`
   0% {
@@ -17,7 +18,7 @@ const typingAnimation = keyframes`
 `;
 
 // Msg container - renders content (avatar && text && attach's && hints) left-to-right or right-to-left is $isMe prop have been passed
-export const StyledMessage = styled.div`
+export const StyledMessage = styled.div<IsMeProp>`
   max-width: 530px;
   display: flex;
   ${(props) =>
@@ -31,7 +32,7 @@ export const StyledMessage = styled.div`
 `;
 
 // Avatar box - prop $isMe sets margins due to right-to-left content layout
-export const MessageAvatarContainer = styled.div`
+export const MessageAvatarContainer = styled.div<IsMeProp>`
   border-radius: 50%;
   width: 33px;
   height: 33px;
@@ -60,7 +61,7 @@ export const Content = styled.div`
 `;
 
 // General bubble container
-export const Bubble = styled.div`
+export const Bubble = styled.div<{ $isMe?: boolean }>`
   max-width: 440px;
   min-height: 42px;
   margin: 0 8px 8px 0;
@@ -142,7 +143,7 @@ export const SmallAttachmentItem = styled(BigAttachmentItem)`
   margin-bottom: 0;
 `;
 
-export const CreatedAt = styled(Hint)`
+export const CreatedAt = styled(Hint)<IsMeProp>`
   ${(props) =>
     props.$isMe &&
     css`
@@ -150,7 +151,10 @@ export const CreatedAt = styled(Hint)`
     `}
 `;
 
-export const IsRead = styled(CheckDouble)`
+export const IsRead = styled(CheckDouble)<{
+  $isMe: boolean;
+  $isRead: boolean;
+}>`
   width: 20px;
   margin-bottom: 5px;
   margin-left: 5px;

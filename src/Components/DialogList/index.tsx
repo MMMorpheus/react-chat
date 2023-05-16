@@ -1,12 +1,16 @@
-import React from "react";
-import { DialogItem } from "@/Components";
+import { FC } from "react";
+import { DialogItem } from "Components";
 import { orderBy } from "lodash";
 
 import styled from "styled-components";
-import { flexColumnCenter, shake } from "@/Styles/styles";
-import noData from "@/assets/img/no-data.png";
+import { flexColumnCenter, shake } from "Styles/styles";
+import noData from "assets/img/no-data.png";
 
-const DialogList = ({ items }) => {
+interface IDialogListProps {
+  items: any[]
+}
+
+export const DialogList:FC<IDialogListProps> = ({ items }) => {
   const dialogs = orderBy(items, ["createdAt"], ["desc"]).map((item) => {
     return <DialogItem key={item.user._id} content={item} isOnline />;
   });
@@ -18,7 +22,8 @@ const DialogList = ({ items }) => {
       <h3>Уууупс!</h3>
       <img src={noData} alt="No results found" />
       <p>
-        Здесь ничего нет! Возможно, попробуйте другой запрос или у Вас еще нет диалогов.
+        Здесь ничего нет! Возможно, попробуйте другой запрос или у Вас еще нет
+        диалогов.
       </p>
     </NoData>
   );
@@ -43,5 +48,3 @@ const NoData = styled.div`
     line-height: 1.5;
   }
 `;
-
-export default DialogList;

@@ -1,17 +1,22 @@
-import React from "react";
-import { Avatar } from "@/Components";
-import { formatTime } from "@/utils";
+import { FC } from "react";
+import { Avatar } from "Components";
+import { formatTime } from "utils";
 
 import * as C from "./style";
 
-const DialogItem = ({
+interface IDialogItemProps {
+  content: any;
+  isOnline: boolean;
+}
+
+export const DialogItem: FC<IDialogItemProps> = ({
   content: { createdAt, text, isMe, isRead, unread, user },
   isOnline,
 }) => {
   return (
     <C.DgItem>
       <C.isOnlineContainer $isOnline={isOnline}>
-        <C.DialogAvatarContainer >
+        <C.DialogAvatarContainer>
           <Avatar user={user} />
         </C.DialogAvatarContainer>
       </C.isOnlineContainer>

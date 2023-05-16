@@ -1,23 +1,29 @@
-import styled, {css} from 'styled-components';
-import { flexColumnCenter } from '@/Styles/styles';
+import { FC } from "react";
+import styled, { css } from "styled-components";
+import { flexColumnCenter } from "Styles/styles";
 import { DotsHorizontalRounded } from "@styled-icons/boxicons-regular";
+import { IsOnlineProp } from "types/styledProps";
 
-const StatusBar = ({user: {name, isOnline}}) => {
-    return (
-        <Bar>
-        <div>{/*This is an empty div for jc = space btw correct work*/}</div>
-        <UserInfo>
-          <h4>{name}</h4>
-          <Status $isOnline={isOnline}>
-            {isOnline={} ? "онлайн" : "офлайн"}
-          </Status>
-        </UserInfo>
-        <button>
-          <DotsHorizontalRounded size="35" />
-        </button>
-      </Bar>
-    );
+interface IStatusBarProps {
+  user: any
 }
+
+export const StatusBar:FC<IStatusBarProps> = ({ user: { name, isOnline } }) => {
+  return (
+    <Bar>
+      <div>{/*This is an empty div for jc = space btw correct work*/}</div>
+      <UserInfo>
+        <h4>{name}</h4>
+        <Status $isOnline={isOnline}>
+          {(isOnline = {} ? "онлайн" : "офлайн")}
+        </Status>
+      </UserInfo>
+      <button>
+        <DotsHorizontalRounded size="35" />
+      </button>
+    </Bar>
+  );
+};
 
 const Bar = styled.div`
   height: 60px;
@@ -36,7 +42,7 @@ const UserInfo = styled.div`
   }
 `;
 
-const Status = styled.span`
+const Status = styled.span<IsOnlineProp>`
   display: block;
   font-size: 14px;
   opacity: 0.5;
@@ -58,5 +64,3 @@ const Status = styled.span`
       `}
   }
 `;
-
-export default StatusBar;

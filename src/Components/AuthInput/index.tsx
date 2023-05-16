@@ -1,9 +1,14 @@
-import React from "react";
+import { FC } from "react";
 import { Field } from "formik";
-
 import styled, { css } from "styled-components";
 
-const AuthInput = ({ name, type, placeholder, ...props }) => {
+interface IAuthInputProps {
+  name: string;
+  type: string;
+  placeholder: string;
+}
+
+export const AuthInput:FC<IAuthInputProps> = ({ name, type, placeholder, ...props }) => {
   return (
     <Field name={name}>
       {({ field, form, meta }) => (
@@ -26,7 +31,7 @@ const AuthInput = ({ name, type, placeholder, ...props }) => {
   );
 };
 
-const StyledInput = styled.input`
+const StyledInput = styled.input<{ $inValid: boolean; $valid: boolean }>`
   width: 300px;
   height: 56px;
   border-radius: 5px;
@@ -35,24 +40,26 @@ const StyledInput = styled.input`
   font-size: 20px;
   &::placeholder {
     font-size: 14px;
-  };
+  }
   &:focus {
     box-shadow: 0px 0px 10px 1px rgba(28, 136, 255, 0.5);
   }
-  ${props => props.$inValid && css`
-    border-color: red;
-  `}
-  ${props => props.$valid && css`
-    border-color: lightgreen;
-  `}
+  ${(props) =>
+    props.$inValid &&
+    css`
+      border-color: red;
+    `}
+  ${(props) =>
+    props.$valid &&
+    css`
+      border-color: lightgreen;
+    `}
 `;
 
 const StyledError = styled.div`
-    text-align: center;
-    font-size: 12px;
-    color: red;
-    margin: 5px auto;
-    max-width: 280px;
+  text-align: center;
+  font-size: 12px;
+  color: red;
+  margin: 5px auto;
+  max-width: 280px;
 `;
-
-export default AuthInput;

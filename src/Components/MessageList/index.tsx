@@ -1,7 +1,11 @@
-import React from 'react';
+import {FC, ReactNode} from 'react';
 import styled from 'styled-components';
 
-const MessageList = ({children}) => {
+interface IMessageListProps {
+  children: ReactNode
+}
+
+export const MessageList:FC<IMessageListProps> = ({children}) => {
     return (
         <List>{children}</List>
     );
@@ -15,5 +19,3 @@ const List = styled.div`
   overflow-y: scroll;
   background-color: #fff;
 `;
-
-export default MessageList;
