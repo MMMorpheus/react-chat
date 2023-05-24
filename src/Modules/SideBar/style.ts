@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { SearchAlt2 } from "@styled-icons/boxicons-regular";
 
 export const StyledAside = styled.aside`
-  width: 320px;
+  width: 420px;
   height: 100%;
   padding: 20px 10px;
   border-right: 1px solid #f7f8f9;

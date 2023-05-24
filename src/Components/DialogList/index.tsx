@@ -20,7 +20,7 @@ export const DialogList:FC<IDialogListProps> = ({ items }) => {
   ) : (
     <NoData>
       <h3>Уууупс!</h3>
-      <img src={noData} alt="No results found" />
+      <img src={noData} alt="Not found" />
       <p>
         Здесь ничего нет! Возможно, попробуйте другой запрос или у Вас еще нет
         диалогов.
@@ -39,10 +39,10 @@ const NoData = styled.div`
   ${flexColumnCenter};
   gap: 20px;
   opacity: 0.7;
-  & img {
+  & > img {
     animation: ${shake} 0.3s ease;
   }
-  & p {
+  & > p {
     text-align: center;
     max-width: 80%;
     line-height: 1.5;

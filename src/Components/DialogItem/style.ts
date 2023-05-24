@@ -3,65 +3,83 @@ import { CheckDouble } from "@styled-icons/boxicons-regular";
 import { flexColumnCenter, read, unRead } from "Styles/styles";
 import { IsOnlineProp, IsReadProp } from "types/styledProps";
 
-export const DgItem = styled.li`
+export const StyledDialog = styled.li<IsOnlineProp>`
   height: 80px;
-  padding-right: 5px;
-  display: flex;
-  align-items: center;
+  transition: background-color .4s ease;
+  &:hover {
+    background-color: #e6e6e6;
+  }
   cursor: pointer;
-`;
-export const isOnlineContainer = styled.div<IsOnlineProp>`
-  position: relative;
-  &::after {
-    content: "";
-    display: none;
-    ${(props) =>
-      props.$isOnline &&
-      css`
-        display: block;
-      `}
-    width: 15px;
-    height: 15px;
-    background-color: green;
-    border-radius: 50%;
-    border: 3px solid white;
-    position: absolute;
-    z-index: 2;
-    bottom: 0;
-    right: 0;
+  & > a {
+    padding: 15px; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    &.active {
+      
+      background-color: #adcfff;
+    }
   }
-`;
-
-export const DialogAvatarContainer = styled.div`
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  font-size: 18px;
-  font-weight: 400;
-  & img {
-    width: 100%;
+  .isOnlineContainer {
+    position: relative;
+    &::after {
+      content: "";
+      display: none;
+      ${(props) =>
+        props.$isOnline &&
+        css`
+          display: block;
+        `}
+      width: 15px;
+      height: 15px;
+      background-color: green;
+      border-radius: 50%;
+      border: 3px solid white;
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      right: 0;
+    }
+    .avatarContainer {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      font-size: 18px;
+      font-weight: 400;
+      & img {
+        width: 100%;
+      }
+    }
   }
-`;
-
-export const DialogContent = styled.div`
-  flex: 1;
-  margin-left: 10px;
-  position: relative;
-`;
-
-export const DialogFullname = styled.div`
-  font-weight: 600;
-  margin-bottom: 5px;
-  font-size: 17px;
-`;
-export const DialogMessage = styled.p`
-  opacity: 0.7;
-  font-size: 14px;
-  max-width: 200px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  .content {
+    flex: 1;
+    margin-left: 10px;
+    position: relative;
+    .content__fullName {
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 17px;
+      letter-spacing: 0.5px;
+    }
+    .content__message {
+      opacity: 0.7;
+      font-size: 14px;
+      max-width: 250px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .content__createdAt {
+      display: block;
+      font-size: 12px;
+      opacity: 0.5;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
 `;
 
 export const NotificationContainer = styled.div`
@@ -87,13 +105,4 @@ export const isRead = styled(CheckDouble)<IsReadProp>`
     css`
       ${read}
     `}
-`;
-
-export const DialogCreatedAt = styled.span`
-  display: block;
-  font-size: 12px;
-  opacity: 0.5;
-  position: absolute;
-  top: 0;
-  right: 0;
 `;
