@@ -1,16 +1,9 @@
-import React, { useState } from "react";
 import { SideBar, DialogWindow } from "Modules";
-import { Auth } from "Pages";
 
 import styled from "styled-components";
 
-
 const Home = () => {
-  const [isLogged, setisLogged] = useState(true);
-
-  return !isLogged ? (
-    <Auth />
-  ) : (
+  return (
     <StyledHome>
       <SideBar />
       <DialogWindow />
@@ -20,10 +13,9 @@ const Home = () => {
 
 const StyledHome = styled.section`
   margin: 0 auto;
-  width: 1140px;
+  width: 1340px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.04204);
   display: flex;
-  
 `;
 
 export default Home;

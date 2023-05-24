@@ -1,15 +1,13 @@
-import {useState} from "react";
-import { LoginForm, RegisterForm } from "Modules";
+import { Outlet } from "react-router-dom";
 
 import styled from "styled-components";
 import { flexColumnCenter } from "Styles/styles";
 
 const Auth = () => {
-  const [authed, setAuthed] = useState<boolean>(false);
 
   return (
     <StyledAuth>
-      { authed ? <LoginForm /> : <RegisterForm /> }
+      <Outlet />
     </StyledAuth>
   );
 };

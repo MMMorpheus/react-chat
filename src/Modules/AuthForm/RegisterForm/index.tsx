@@ -66,7 +66,7 @@ export const RegisterForm:FC = () => {
                 </C.FormIconStyleWrapper>
               </label>
               <C.AuthButton type="submit">Зарегистрироваться</C.AuthButton>
-              <C.RouterLink to={"/login"}>Войти в аккаунт</C.RouterLink>
+              <C.RouterLink to={"../login"}>Войти в аккаунт</C.RouterLink>
             </C.AuthBlock>
           )}
         </Form>
